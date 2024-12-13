@@ -1,0 +1,229 @@
+//Task1
+
+while (true)
+{
+    Console.Write("\nEnter a number:");
+
+    string input = Console.ReadLine();
+
+    if (!int.TryParse(input, out int number))
+    {
+        Console.WriteLine("Error! Please enter a number!");
+        continue;
+    }
+    else
+    {
+        if (number > 0 && number < 100)
+        {
+            if (number % 3 == 0)
+            {
+                Console.Write("Fizz");
+            }
+            if (number % 5 == 0)
+            {
+                Console.Write("Buzz");
+            }
+            if (number % 3 != 0 && number % 5 != 0)
+            {
+                Console.Write(number);
+            }
+        }
+        else
+        {
+            Console.Write("Error! Please enter a number from 1 to 100!");
+        }
+    }
+}
+
+//Task2
+
+//while (true)
+//{
+//    Console.Write("Enter a Value:");
+//    string inputValue = Console.ReadLine();
+
+//    Console.Write("Enter a Percent:");
+//    string inputPercent = Console.ReadLine();
+
+//    if (!int.TryParse(inputValue, out int Value) || !int.TryParse(inputPercent, out int Percent))
+//    {
+//        Console.WriteLine("Error! Please enter a valid number!");
+//        continue;
+//    }
+//    else
+//    {
+//        Console.WriteLine(Value * (Percent / 100.0));
+//        break;
+//    }
+//}
+
+//Task3
+// while (true)
+// {
+//     Console.Write("Enter a first number:");
+//     string inputNum1 = Console.ReadLine();
+//
+//     Console.Write("Enter a second number:");
+//     string inputNum2 = Console.ReadLine();
+//     
+//     Console.Write("Enter a third number:");
+//     string inputNum3 = Console.ReadLine();
+//     
+//     Console.Write("Enter a fourth number:");
+//     string inputNum4 = Console.ReadLine();
+//
+//     if (!int.TryParse(inputNum1, out int num1) || !int.TryParse(inputNum2, out int num2) || !int.TryParse(inputNum3, out int num3) || !int.TryParse(inputNum4, out int num4))
+//     {
+//         Console.WriteLine("Error! Please enter a number!");
+//         continue;
+//     }
+//     else
+//     {
+//         if(num1 > 0 && num1 < 10 && num2 > 0 && num2 < 10 && num3 > 0 && num3 < 10)
+//         {
+//             Console.WriteLine((num1*1000) + (num2*100) + (num3*10) + num4);
+//             break;
+//         }
+//         else
+//         {
+//             Console.WriteLine("Error! Please enter a valid number from 1 to 9!");
+//         }
+//     }
+// }
+
+//Task 4
+// while (true)
+// {
+//     Console.Write("Enter a six-digit number: ");
+//     string input = Console.ReadLine();
+//
+//     if (input.Length != 6 || !int.TryParse(input, out _))
+//     {
+//         Console.WriteLine("Error! Please enter a valid six-digit number!");
+//         continue;
+//     }
+//
+//     Console.Write("Enter the first digit position to swap (1 to 6): ");
+//     string inputPos1 = Console.ReadLine();
+//
+//     Console.Write("Enter the second digit position to swap (1 to 6): ");
+//     string inputPos2 = Console.ReadLine();
+//
+//     if (!int.TryParse(inputPos1, out int pos1) || !int.TryParse(inputPos2, out int pos2) ||
+//         pos1 < 1 || pos1 > 6 || pos2 < 1 || pos2 > 6)
+//     {
+//         Console.WriteLine("Error! Positions must be numbers between 1 and 6!");
+//         continue;
+//     }
+//
+//     if (pos1 == pos2)
+//     {
+//         Console.WriteLine("Error! The positions to swap must be different!");
+//         continue;
+//     }
+//
+//     int index1 = pos1 - 1;
+//     int index2 = pos2 - 1;
+//     char[] digits = input.ToCharArray();
+//
+//     char temp = digits[index1];
+//     digits[index1] = digits[index2];
+//     digits[index2] = temp;
+//
+//     string result = new string(digits);
+//
+//     Console.WriteLine($"Result after swapping: {result}");
+//     break;
+// }
+
+//Task5
+
+// while (true)
+// {
+//     Console.Write("Enter a date (dd.MM.yyyy): ");
+//     string input = Console.ReadLine();
+//
+//     if (DateTime.TryParseExact(input, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out DateTime date))
+//     {
+//         string dayOfWeek = date.DayOfWeek.ToString();
+//         string season = (date.Month == 12 || date.Month == 1 || date.Month == 2) ? "Winter" :
+//             (date.Month >= 3 && date.Month <= 5) ? "Spring" :
+//             (date.Month >= 6 && date.Month <= 8) ? "Summer" : "Autumn";
+//         Console.WriteLine($"{season} {dayOfWeek}");
+//     }
+//     else
+//     {
+//         Console.WriteLine("Invalid date format.");
+//     }
+// }
+
+
+//Task6
+// while (true)
+// {
+//     Console.WriteLine("Temperature Converter");
+//     Console.WriteLine("1: Convert Fahrenheit to Celsius");
+//     Console.WriteLine("2: Convert Celsius to Fahrenheit");
+//     Console.WriteLine("Enter your choice (1 or 2):");
+//
+//     string choice = Console.ReadLine();
+//
+//     if (choice != "1" && choice != "2")
+//     {
+//         Console.WriteLine("Invalid choice. Please select 1 or 2.");
+//         continue;
+//     }
+//     
+//         Console.Write("Enter the temperature value: ");
+//         if (!double.TryParse(Console.ReadLine(), out double temperature))
+//         {
+//             Console.WriteLine("Invalid input! Please enter a numeric value.");
+//             continue;
+//         }
+//
+//         if (choice == "1")
+//         {
+//             double celsius = (temperature - 32) * 5 / 9;
+//             Console.WriteLine($"{temperature}F is equal to {celsius}C.");
+//         }
+//         else
+//         {
+//             double fahrenheit = (temperature * 9 / 5) + 32;
+//             Console.WriteLine($"{temperature}C is equal to {fahrenheit}F.");
+//         }
+// }
+
+//Task7
+// while (true)
+// {
+//     Console.WriteLine("Enter the first number:");
+//     if (!int.TryParse(Console.ReadLine(), out int firstNumber))
+//     {
+//         Console.WriteLine("Invalid input! Please enter an integer.");
+//         continue;
+//     }
+//
+//     Console.WriteLine("Enter the second number:");
+//     if (!int.TryParse(Console.ReadLine(), out int secondNumber))
+//     {
+//         Console.WriteLine("Invalid input! Please enter an integer.");
+//         continue;
+//     }
+//     
+//     int start = Math.Min(firstNumber, secondNumber);
+//     int end = Math.Max(firstNumber, secondNumber);
+//     
+//     Console.WriteLine($"Even numbers in the range from {start} to {end}:");
+//     
+//     for (int i = start; i <= end; i++)
+//     {
+//         if (i % 2 == 0)
+//         {
+//             Console.Write(i + " ");
+//         }
+//     }
+//         
+//     Console.WriteLine();
+// }
+
+

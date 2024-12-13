@@ -1,0 +1,229 @@
+//Task1
+
+int[] array = { 1, 2, 3, 2, 2, 6, 6, 8, 9, 10 };
+
+Console.WriteLine("Even numbers are:");
+foreach (int num in array)
+{
+    if (num % 2 == 0) Console.WriteLine(num);
+}
+
+Console.WriteLine("\nOdd numbers are:");
+foreach (int num in array)
+{
+    if (num % 2 != 0) Console.WriteLine(num);
+}
+
+Console.WriteLine("\nUnique numbers are:");
+foreach (int num in array)
+{
+    if (Array.FindAll(array, x => x == num).Length == 1)
+        Console.WriteLine(num);
+}
+
+
+
+//Task2
+
+// int[] array = new int[10];
+//
+// for (int i = 0; i < array.Length; i++)
+// {
+//     array[i] = i;
+// }
+//
+// Console.Write("Enter number: ");
+// int num = int.Parse(Console.ReadLine());
+//
+// Console.WriteLine("Our numbers are:");
+// foreach (int value in array)
+// {
+//     if (value < num)
+//     {
+//         Console.WriteLine(value);
+//     }
+// }
+
+
+//Task3
+//
+// Console.WriteLine("Enter number 1: ");
+// int num1 = int.Parse(Console.ReadLine());
+//
+// Console.WriteLine("Enter number 2: ");
+// int num2 = int.Parse(Console.ReadLine());
+//
+// Console.WriteLine("Enter number 3: ");
+// int num3 = int.Parse(Console.ReadLine());
+//
+// Console.WriteLine("Array:");
+// int[] array = { 1, 2, 3, 2, 3, 2, 6, 8, 9, 10 };
+//
+// foreach (var value in array)
+// {
+//     Console.WriteLine(value);
+// }
+//
+//
+// int count = 0;
+//
+// for (int i = 0; i < array.Length - 2; i++) 
+// {
+//     if (array[i] == num1 && array[i + 1] == num2 && array[i + 2] == num3)
+//     {
+//         count++;
+//     }
+// }
+//
+// Console.WriteLine($"\nThe sequence ({num1}, {num2}, {num3}) appears {count} time(s) in the array.");
+
+//Task4
+
+// int[] array1 = { 1, 2, 3, 4, 5, 5, 6 };
+// int[] array2 = { 4, 5, 6, 7, 8, 5 };
+//
+// int resultLength = (array1.Length < array2.Length) ? array1.Length : array2.Length;
+// int[] result = new int[resultLength];
+// int resultIndex = 0;
+//
+// for (int i = 0; i < array1.Length; i++)
+// {
+//     for (int j = 0; j < array2.Length; j++)
+//     {
+//         if (array1[i] == array2[j]) 
+//         {
+//             bool exists = false;
+//             for (int k = 0; k < resultIndex; k++)
+//             {
+//                 if (result[k] == array1[i])
+//                 {
+//                     exists = true;
+//                     break;
+//                 }
+//             }
+//             if (!exists)
+//             {
+//                 result[resultIndex] = array1[i];
+//                 resultIndex++;
+//             }
+//
+//             break; 
+//         }
+//     }
+// }
+//
+// Console.WriteLine("Common elements without duplicates:");
+// for (int i = 0; i < resultIndex; i++)
+// {
+//     Console.Write(result[i] + " ");
+// }
+
+//Task5
+
+// int[,] array = {
+//     { 5, 3, 8 },
+//     { 2, 7, 6 },
+//     { 9, 1, 4 }
+// };
+// int min = array[0, 0];
+// int max = array[0, 0];
+//
+// for (int i = 0; i < array.GetLength(0); i++) 
+// {
+//     for (int j = 0; j < array.GetLength(1); j++)
+//     {
+//         if (array[i, j] < min) min = array[i, j]; 
+//         if (array[i, j] > max) max = array[i, j]; 
+//     }
+// }
+//
+// Console.WriteLine("Minimum value: " + min);
+// Console.WriteLine("Maximum value: " + max);
+
+
+//Task6
+//
+// Console.WriteLine("Enter sentence:");
+// string input = Console.ReadLine();
+//
+// if (string.IsNullOrWhiteSpace(input))
+// {
+//     Console.WriteLine("Sentence is empty");
+//     return;
+// }
+//
+// string[] words = input.Split(new char[] { ' ', '\t' });
+//
+// Console.WriteLine($"Words' count: {words.Length}");
+
+//Task7
+
+// Console.WriteLine("Enter sentence:");
+// string input = Console.ReadLine();
+//
+// if (string.IsNullOrWhiteSpace(input))
+// {
+//     Console.WriteLine("Sentence is empty");
+//     return;
+// }
+// string[] words = input.Split(new char[] { ' ', '\t' });
+//
+// for (int i = 0; i < words.Length; i++)
+// {
+//     char[] wordArray = words[i].ToCharArray();   
+//     Array.Reverse(wordArray);           
+//     words[i] = new string(wordArray); 
+// }
+//
+// Console.WriteLine("Result of rotation:");
+// Console.WriteLine(string.Join(" ", words));
+
+//Task8
+//
+// Console.WriteLine("Enter sentence:");
+// string input = Console.ReadLine();
+//
+// if (string.IsNullOrWhiteSpace(input))
+// {
+//     Console.WriteLine("Sentence is empty");
+//     return;
+// }
+//
+// string vowels = "aeiouAEIOU";
+// int vowelCount = 0;
+//
+// foreach (char c in input)
+// {
+//     if (vowels.Contains(c)) 
+//     {
+//         vowelCount++;
+//     }
+// }
+// Console.WriteLine($"Count of vowels {vowelCount}");
+
+//Task9     
+
+// Console.WriteLine("Enter string:");
+// string inputString = Console.ReadLine();
+//
+// Console.WriteLine("Enter substring:");
+// string searchString = Console.ReadLine();
+//
+// if (string.IsNullOrWhiteSpace(inputString) || string.IsNullOrWhiteSpace(searchString))
+// {
+//     Console.WriteLine("String or substring is empty.");
+//     return;
+// }
+//
+// inputString = inputString.ToLower();
+// searchString = searchString.ToLower();
+// int count = 0;
+// int index = 0;
+//
+// while ((index = inputString.IndexOf(searchString, index)) != -1)
+// {
+//     count++;
+//     index += searchString.Length;
+// }
+//
+// Console.WriteLine($"Результат поиска: {count}");
