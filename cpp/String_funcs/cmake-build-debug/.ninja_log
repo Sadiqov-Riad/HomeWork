@@ -1,0 +1,23 @@
+# ninja log v6
+22	460	7487021624470733	CMakeFiles/String_funcs.dir/main.cpp.obj	9ae780441f6c2f2a
+461	561	7487021628856532	String_funcs.exe	4d78a950dc9b424a
+27	461	7487021789076452	CMakeFiles/String_funcs.dir/main.cpp.obj	9ae780441f6c2f2a
+462	550	7487021793427685	String_funcs.exe	4d78a950dc9b424a
+9	458	7487024600334743	CMakeFiles/String_funcs.dir/main.cpp.obj	9ae780441f6c2f2a
+458	555	7487024604826737	String_funcs.exe	4d78a950dc9b424a
+22	587	7487037097373169	CMakeFiles/String_funcs.dir/main.cpp.obj	9ae780441f6c2f2a
+588	708	7487037103028859	String_funcs.exe	4d78a950dc9b424a
+20	445	7487037260081859	CMakeFiles/String_funcs.dir/main.cpp.obj	9ae780441f6c2f2a
+446	530	7487037264339204	String_funcs.exe	4d78a950dc9b424a
+7	425	7487041500472024	CMakeFiles/String_funcs.dir/main.cpp.obj	9ae780441f6c2f2a
+426	514	7487041504660252	String_funcs.exe	4d78a950dc9b424a
+24	474	7487041579892370	CMakeFiles/String_funcs.dir/main.cpp.obj	9ae780441f6c2f2a
+475	577	7487041584398945	String_funcs.exe	4d78a950dc9b424a
+20	448	7487043267550789	CMakeFiles/String_funcs.dir/main.cpp.obj	9ae780441f6c2f2a
+448	541	7487043271829382	String_funcs.exe	4d78a950dc9b424a
+19	443	7487043709895038	CMakeFiles/String_funcs.dir/main.cpp.obj	9ae780441f6c2f2a
+443	528	7487043714137699	String_funcs.exe	4d78a950dc9b424a
+23	510	7487117643909116	CMakeFiles/String_funcs.dir/main.cpp.obj	9ae780441f6c2f2a
+511	626	7487117648771648	String_funcs.exe	4d78a950dc9b424a
+21	457	7487118022917331	CMakeFiles/String_funcs.dir/main.cpp.obj	9ae780441f6c2f2a
+458	543	7487118027274522	String_funcs.exe	4d78a950dc9b424a

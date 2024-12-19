@@ -1,0 +1,3 @@
+C:/Users/user/Desktop/step/c++_loops/cmake-build-debug/CMakeFiles/c___loops.dir
+C:/Users/user/Desktop/step/c++_loops/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/user/Desktop/step/c++_loops/cmake-build-debug/CMakeFiles/rebuild_cache.dir

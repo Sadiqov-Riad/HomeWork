@@ -1,0 +1,27 @@
+# ninja log v6
+5	2214	7470026811985888	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+2218	2362	7470026834116916	arrays_practice.exe	80bca02b1ba5dbc8
+25	582	7470118517661562	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+583	701	7470118523237066	arrays_practice.exe	80bca02b1ba5dbc8
+23	478	7470122696974601	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+478	587	7470122701537000	arrays_practice.exe	80bca02b1ba5dbc8
+8	451	7470129808654043	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+452	555	7470129813091248	arrays_practice.exe	80bca02b1ba5dbc8
+10	453	7470131603929872	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+459	549	7470131608415729	arrays_practice.exe	80bca02b1ba5dbc8
+30	579	7470135806007406	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+580	702	7470135811505064	arrays_practice.exe	80bca02b1ba5dbc8
+9	679	7471907928007226	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+680	933	7471907934708884	arrays_practice.exe	80bca02b1ba5dbc8
+47	635	7472412924680645	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+636	850	7472412930560803	arrays_practice.exe	80bca02b1ba5dbc8
+21	506	7472416324930472	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+507	617	7472416329792215	arrays_practice.exe	80bca02b1ba5dbc8
+23	537	7472416408486925	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+538	623	7472416413636922	arrays_practice.exe	80bca02b1ba5dbc8
+10	452	7472418462152501	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+453	546	7472418466591249	arrays_practice.exe	80bca02b1ba5dbc8
+8	457	7472419272274645	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+458	549	7472419276765145	arrays_practice.exe	80bca02b1ba5dbc8
+8	440	7472419608498002	CMakeFiles/arrays_practice.dir/main.cpp.obj	5536a6e241dbaea6
+441	536	7472419612821030	arrays_practice.exe	80bca02b1ba5dbc8

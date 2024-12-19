@@ -1,0 +1,3 @@
+C:/Users/user/Desktop/step/Dynamic_array_part_1/cmake-build-debug/CMakeFiles/Dynamic_array_part_1.dir
+C:/Users/user/Desktop/step/Dynamic_array_part_1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/user/Desktop/step/Dynamic_array_part_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

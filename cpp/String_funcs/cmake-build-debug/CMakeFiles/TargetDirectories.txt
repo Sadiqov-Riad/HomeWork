@@ -1,0 +1,3 @@
+C:/Users/user/Desktop/step/String_funcs/cmake-build-debug/CMakeFiles/String_funcs.dir
+C:/Users/user/Desktop/step/String_funcs/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/user/Desktop/step/String_funcs/cmake-build-debug/CMakeFiles/rebuild_cache.dir

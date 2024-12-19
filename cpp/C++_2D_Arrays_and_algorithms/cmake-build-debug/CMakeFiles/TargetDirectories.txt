@@ -1,0 +1,3 @@
+C:/Users/user/Desktop/step/C++_2D_Arrays_and_algorithms/cmake-build-debug/CMakeFiles/C___2D_Arrays_and_algorithms.dir
+C:/Users/user/Desktop/step/C++_2D_Arrays_and_algorithms/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/user/Desktop/step/C++_2D_Arrays_and_algorithms/cmake-build-debug/CMakeFiles/rebuild_cache.dir

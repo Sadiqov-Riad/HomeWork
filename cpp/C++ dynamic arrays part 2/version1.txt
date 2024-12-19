@@ -1,0 +1,124 @@
+#include <iostream>
+
+template<typename T>
+T** generate_matrix(int rows, int cols) {
+    T** temp_matrix = new T * [rows];
+
+    for (unsigned short i = 0; i < rows; i++) {
+        temp_matrix[i] = new T[cols];
+    }
+    return temp_matrix;
+}
+
+template<typename T>
+void fill_matrix(T**& matrix, int rows, int cols) {
+    srand(time(NULL));
+    for (unsigned short i = 0; i < rows; i++) {
+        for (unsigned short j = 0; j < cols; j++) {
+            matrix[i][j] = rand() % 10;
+        }
+    }
+}
+
+template<typename T>
+void display_matrix(T** matrix, int rows, int cols) {
+    for (unsigned short i = 0; i < rows; i++) {
+        for (unsigned short j = 0; j < cols; j++) {
+            std::cout << matrix[i][j] << ' ';
+        }
+        std::cout << std::endl;
+    }
+}
+
+template<typename T>
+void free_matrix(T**& matrix, int rows) {
+    for (unsigned short i = 0; i < rows; i++) {
+        delete[] matrix[i];
+    }
+
+    delete[] matrix;
+}
+
+template<typename T>
+void add_row_at(T**& matrix, int& rows, int cols, int pos) {
+    if (pos < 0 || pos > rows) {
+        std::cout << "Invalid position!" << std::endl;
+        return;
+    }
+
+    T** new_matrix = new T * [rows + 1];
+
+    for (unsigned short i = 0, j = 0; i < rows + 1; i++) {
+        if (i == pos) {
+            new_matrix[i] = new T[cols];
+            std::cout << "Enter values for the new row: ";
+            for (unsigned short k = 0; k < cols; k++) {
+                std::cin >> new_matrix[i][k];
+            }
+        }
+        else {
+            new_matrix[i] = matrix[j++];
+        }
+    }
+
+    delete[] matrix;
+
+    rows++;
+
+    matrix = new_matrix;
+}
+
+template<typename T>
+void add_col_at(T**& matrix, int rows, int& cols, int pos) {
+    if (pos < 0 || pos > cols) {
+        std::cout << "Invalid position!" << std::endl;
+        return;
+    }
+
+    for (unsigned short i = 0; i < rows; i++) {
+        T* new_row = new T[cols + 1];
+
+        for (unsigned short j = 0, k = 0; j < cols + 1; j++) {
+            if (j == pos) {
+                std::cout << "Enter value for row " << i + 1 << ", column " << pos + 1 << ": ";
+                std::cin >> new_row[j];
+            } else {
+                new_row[j] = matrix[i][k++];
+            }
+        }
+
+        delete[] matrix[i];
+        matrix[i] = new_row;
+    }
+
+    cols++;
+}
+
+int main() {
+    int rows, cols, pos;
+
+    std::cout << "Enter rows and columns (NxM): ";
+    std::cin >> rows >> cols;
+
+    int** matrix = generate_matrix<int>(rows, cols);
+    fill_matrix(matrix, rows, cols);
+    display_matrix(matrix, rows, cols);
+
+    std::cout << "Enter position to add a new row: ";
+    std::cin >> pos;
+
+    add_row_at(matrix, rows, cols, pos);
+    std::cout << "Matrix after adding a new row:\n";
+    display_matrix(matrix, rows, cols);
+
+    std::cout << "Enter position to add a new column: ";
+    std::cin >> pos;
+
+    add_col_at(matrix, rows, cols, pos);
+    std::cout << "Matrix after adding a new column:\n";
+    display_matrix(matrix, rows, cols);
+
+    free_matrix(matrix, rows);
+
+    return 0;
+}
