@@ -1,48 +1,68 @@
 ﻿using ProjectShowroom;
 using ProjectShowroom.Data;
 
-UserService authSystem = new UserService();
+        var service = new ShowroomService();
 
-Console.WriteLine("1. Register\n2. Login\n3. Exit");
-
-string userInput = Console.ReadLine();
-
-switch (userInput)
-{
-    case "1":
-        Console.WriteLine("Enter username: ");
-        string RegUsername = Console.ReadLine();
-        
-        Console.WriteLine("Enter password: ");
-        string RegPassword = Console.ReadLine();
-        
-        var RegisterDTO = new RegisterDTO(RegUsername, RegPassword);
-
-        if (!ValidateService.ValidateRegister(RegisterDTO))
+        while (true)
         {
-            Console.WriteLine("Invalid username or password");
-        }
-        else
-        {
-            authSystem.RegisterUser(RegisterDTO);
-        }
-        break;
-    case "2":
-        Console.WriteLine("Enter username: ");
-        string LogUsername = Console.ReadLine();
-        Console.WriteLine("Enter password: ");
-        string LogPassword = Console.ReadLine();
-        
-        var loginDTO = new LoginDTO(LogUsername, LogPassword);
+            Console.WriteLine("1. Create Showroom\n2. Edit Showroom\n3. Delete Showroom\n4. Display Showrooms\n5. Exit");
+            Console.Write("Choose an option: ");
+            var choice = Console.ReadLine();
 
-        if (!ValidateService.ValidateLogin(loginDTO))
-        {
-            Console.WriteLine("Invalid username or password");
+            switch (choice)
+            {
+                case "1":
+                    Console.Write("Enter showroom name: ");
+                    var name = Console.ReadLine();
+                    Console.Write("Enter showroom capacity: ");
+                    if (int.TryParse(Console.ReadLine(), out var capacity))
+                    {
+                        service.CreateShowroom(name, capacity);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid capacity.");
+                    }
+                    break;
+                case "2":
+                    Console.Write("Enter showroom ID to edit: ");
+                    if (Guid.TryParse(Console.ReadLine(), out var editId))
+                    {
+                        Console.Write("Enter new name: ");
+                        var newName = Console.ReadLine();
+                        Console.Write("Enter new capacity: ");
+                        if (int.TryParse(Console.ReadLine(), out var newCapacity))
+                        {
+                            service.EditShowroom(editId, newName, newCapacity);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid capacity.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid ID.");
+                    }
+                    break;
+                case "3":
+                    Console.Write("Enter showroom ID to delete: ");
+                    if (Guid.TryParse(Console.ReadLine(), out var deleteId))
+                    {
+                        service.DeleteShowroom(deleteId);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid ID.");
+                    }
+                    break;
+                case "4":
+                    service.DisplayShowrooms();
+                    break;
+                case "5":
+                    return;
+                default:
+                    Console.WriteLine("Invalid option.");
+                    break;
+            }
         }
-        else
-        {
-            authSystem.LoginUser(loginDTO);
-        }
-        break;
-
-}
