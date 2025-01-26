@@ -5,8 +5,8 @@ namespace ProjectShowroom;
 
 public static class ValidateService
 {
-    private static Regex loginRegex = new Regex(@"^(?=.*[A-Za-z0-9]$)[A-Za-z]([A-Za-z\d.-_]){0,19}$");
-    private static Regex passwordRegex = new Regex(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%&_])[A-Za-z\d!@#$%&_]{8,16}$");
+    private static Regex loginRegex = new Regex(@"^[A-Za-z\d]{3,16}$");
+    private static Regex passwordRegex = new Regex(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
 
     public static bool ValidateLogin(LoginDTO loginDto)
     {

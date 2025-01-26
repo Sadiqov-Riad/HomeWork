@@ -10,6 +10,7 @@ public class Showroom
     public List<Car> Cars { get; set; } = new();
     public int SalesCount { get; set; }
 
+    public Showroom() {}
     public Showroom(string name, int carCapacity)
     {
         Name = name;

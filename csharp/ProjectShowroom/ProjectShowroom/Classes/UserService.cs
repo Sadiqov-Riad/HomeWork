@@ -40,14 +40,20 @@ public class UserService : IUserService
         {
             throw new Exception("Invalid registration credentials");
         }
-
         var json = File.ReadAllText("Data/Users.json");
-
+        
         if (json.Length > 0)
         {
             Users = JsonSerializer.Deserialize<List<User>>(json);
         }
-
+        else
+        {
+            Users = new List<User>();
+        }
+        if (Users.Any(user => user.Username == registerDto.username))
+        {
+            throw new Exception("Username is already taken.");
+        }
         Users.Add(new User()
         {
             Username = registerDto.username,
@@ -55,9 +61,9 @@ public class UserService : IUserService
         });
 
         var jsonString = JsonSerializer.Serialize(Users);
-
         File.WriteAllText("./Data/Users.json", jsonString);
 
         Console.WriteLine("User registered successfully");
     }
+
 }
