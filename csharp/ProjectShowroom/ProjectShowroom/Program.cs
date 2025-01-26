@@ -1,15 +1,17 @@
 ﻿using ProjectShowroom;
 using ProjectShowroom.Data;
+using ProjectShowroom.Interfaces;
 
-UserService authSystem = new UserService();
-ShowroomService service = new ShowroomService();
+UserService userService = new UserService();
+ShowroomService showroomService = new ShowroomService();
 
 while (true)
 {
-    Console.WriteLine("1. Register\n2. Login\n3. Exit");
-    string userInput = Console.ReadLine();
+    Console.WriteLine("1. Register\n2. Login\n3. Create Showroom\n4. Delete Showroom\n5. Edit Showroom\n6. Show Showrooms\n7. Exit");
+    Console.Write("Choose an option: ");
+    var choice = Console.ReadLine();
 
-    switch (userInput)
+    switch (choice)
     {
         case "1":
             Console.Write("Enter username: ");
@@ -26,7 +28,7 @@ while (true)
             }
             else
             {
-                authSystem.RegisterUser(registerDto);
+                userService.RegisterUser(registerDto);
                 Console.WriteLine("Registration successful.");
             }
             break;
@@ -34,6 +36,7 @@ while (true)
         case "2":
             Console.Write("Enter username: ");
             string logUsername = Console.ReadLine();
+
             Console.Write("Enter password: ");
             string logPassword = Console.ReadLine();
 
@@ -45,11 +48,36 @@ while (true)
             }
             else
             {
-                var user = authSystem.LoginUser(loginDto);
+                var user = userService.LoginUser(loginDto);
                 if (user != null)
                 {
                     Console.WriteLine("Login successful.");
-                    ManageShowrooms(service); 
+
+                    var showrooms = showroomService.Showrooms;
+                    if (showrooms.Count == 0)
+                    {
+                        Console.WriteLine("No showrooms available.");
+                        break;
+                    }
+
+                    Console.WriteLine("Select a showroom:");
+                    for (int i = 0; i < showrooms.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {showrooms[i].Name} (Capacity: {showrooms[i].CarCapacity})");
+                    }
+
+                    Console.Write("Enter showroom number: ");
+                    if (int.TryParse(Console.ReadLine(), out var showroomChoice) && showroomChoice > 0 && showroomChoice <= showrooms.Count)
+                    {
+                        var selectedShowroom = showrooms[showroomChoice - 1];
+                        Console.WriteLine($"Selected showroom: {selectedShowroom.Name}");
+
+                        ManageCars(selectedShowroom);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid showroom choice.");
+                    }
                 }
                 else
                 {
@@ -59,6 +87,61 @@ while (true)
             break;
 
         case "3":
+            Console.Write("Enter showroom name: ");
+            var name = Console.ReadLine();
+            Console.Write("Enter showroom capacity: ");
+            if (int.TryParse(Console.ReadLine(), out var capacity))
+            {
+                showroomService.CreateShowroom(name, capacity);
+                Console.WriteLine("Showroom created successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid capacity.");
+            }
+            break;
+
+        case "4":
+            Console.Write("Enter showroom ID to delete: ");
+            if (Guid.TryParse(Console.ReadLine(), out var deleteId))
+            {
+                showroomService.DeleteShowroom(deleteId);
+                Console.WriteLine("Showroom deleted successfully.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid ID.");
+            }
+            break;
+
+        case "5":
+            Console.Write("Enter showroom ID to edit: ");
+            if (Guid.TryParse(Console.ReadLine(), out var editId))
+            {
+                Console.Write("Enter new name: ");
+                var newName = Console.ReadLine();
+                Console.Write("Enter new capacity: ");
+                if (int.TryParse(Console.ReadLine(), out var newCapacity))
+                {
+                    showroomService.EditShowroom(editId, newName, newCapacity);
+                    Console.WriteLine("Showroom updated successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid capacity.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid ID.");
+            }
+            break;
+
+        case "6":
+            showroomService.DisplayShowrooms();
+            break;
+
+        case "7":
             return;
 
         default:
@@ -67,70 +150,78 @@ while (true)
     }
 }
 
-static void ManageShowrooms(ShowroomService service)
+void ManageCars(Showroom showroom)
 {
     while (true)
     {
-        Console.WriteLine("\n1. Create Showroom\n2. Edit Showroom\n3. Delete Showroom\n4. Display Showrooms\n5. Logout");
+        Console.WriteLine("1. Add Car\n2. Edit Car\n3. Delete Car\n4. Show Cars\n5. Back");
         Console.Write("Choose an option: ");
         var choice = Console.ReadLine();
 
         switch (choice)
         {
             case "1":
-                Console.Write("Enter showroom name: ");
-                var name = Console.ReadLine();
-                Console.Write("Enter showroom capacity: ");
-                if (int.TryParse(Console.ReadLine(), out var capacity))
+                Console.Write("Enter car brand: ");
+                var carModel = Console.ReadLine();
+                Console.Write("Enter car model: ");
+                var CarManufacturerAdd = Console.ReadLine();
+                Console.Write("Enter car price: ");
+                if (decimal.TryParse(Console.ReadLine(), out var carPrice))
                 {
-                    service.CreateShowroom(name, capacity);
+                    showroom.AddCar(new Car(carModel, CarManufacturerAdd, carPrice));
+                    Console.WriteLine("Car added successfully.");
                 }
                 else
                 {
-                    Console.WriteLine("Invalid capacity.");
+                    Console.WriteLine("Invalid price.");
                 }
                 break;
 
+
             case "2":
-                Console.Write("Enter showroom ID to edit: ");
-                if (Guid.TryParse(Console.ReadLine(), out var editId))
+                Console.Write("Enter car ID to edit: ");
+                if (Guid.TryParse(Console.ReadLine(), out var editCarId))
                 {
-                    Console.Write("Enter new name: ");
-                    var newName = Console.ReadLine();
-                    Console.Write("Enter new capacity: ");
-                    if (int.TryParse(Console.ReadLine(), out var newCapacity))
+                    Console.Write("Enter new brand: ");
+                    var newCarModel = Console.ReadLine();
+                    Console.Write("Enter car model: ");
+                    var CarManufacturerEdit = Console.ReadLine();
+                    Console.Write("Enter new price: ");
+                    if (decimal.TryParse(Console.ReadLine(), out var newCarPrice))
                     {
-                        service.EditShowroom(editId, newName, newCapacity);
+                        showroom.EditCar(editCarId, newCarModel, CarManufacturerEdit, newCarPrice);
+
+                        Console.WriteLine("Car updated successfully.");
                     }
                     else
                     {
-                        Console.WriteLine("Invalid capacity.");
+                        Console.WriteLine("Invalid price.");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Invalid ID.");
+                    Console.WriteLine("Invalid car ID.");
                 }
                 break;
 
             case "3":
-                Console.Write("Enter showroom ID to delete: ");
-                if (Guid.TryParse(Console.ReadLine(), out var deleteId))
+                Console.Write("Enter car ID to delete: ");
+                if (Guid.TryParse(Console.ReadLine(), out var deleteCarId))
                 {
-                    service.DeleteShowroom(deleteId);
+                    showroom.RemoveCar(deleteCarId);
+                    Console.WriteLine("Car deleted successfully.");
                 }
                 else
                 {
-                    Console.WriteLine("Invalid ID.");
+                    Console.WriteLine("Invalid car ID.");
                 }
                 break;
 
             case "4":
-                service.DisplayShowrooms();
+                showroom.DisplayCars();
                 break;
 
             case "5":
-                Console.WriteLine("Logging out...");
                 return;
 
             default:

@@ -19,20 +19,22 @@ public class ShowroomService
             var json = File.ReadAllText(FilePath);
             if (!string.IsNullOrWhiteSpace(json))
             {
-                Showrooms = JsonSerializer.Deserialize<List<Showroom>>(json) ?? new List<Showroom>();
+                Showrooms = JsonSerializer.Deserialize<List<Showroom>>(json);
             }
         }
     }
 
     private void SaveData()
     {
-        var json = JsonSerializer.Serialize(Showrooms, new JsonSerializerOptions { WriteIndented = true });
+        var json = JsonSerializer.Serialize(Showrooms);
         File.WriteAllText(FilePath, json);
     }
 
     public void CreateShowroom(string name, int capacity)
     {
-        if (Showrooms.Any(s => s.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+        LoadData();
+        
+        if (Showrooms.Any(s => s.Name == name))
         {
             Console.WriteLine("A showroom with this name already exists.");
             return;
@@ -45,6 +47,7 @@ public class ShowroomService
 
     public void DeleteShowroom(Guid showroomId)
     {
+        LoadData();
         var showroom = Showrooms.FirstOrDefault(s => s.Id == showroomId);
         if (showroom == null)
         {
@@ -59,6 +62,7 @@ public class ShowroomService
 
     public void EditShowroom(Guid showroomId, string newName, int newCapacity)
     {
+        LoadData();
         var showroom = Showrooms.FirstOrDefault(s => s.Id == showroomId);
         if (showroom == null)
         {
@@ -74,6 +78,7 @@ public class ShowroomService
 
     public void DisplayShowrooms()
     {
+        LoadData();
         if (!Showrooms.Any())
         {
             Console.WriteLine("No showrooms available.");
