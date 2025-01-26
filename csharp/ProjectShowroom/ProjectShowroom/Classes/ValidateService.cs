@@ -15,6 +15,6 @@ public static class ValidateService
     
     public static bool ValidateRegister(RegisterDTO registerDto)
     {
-        return loginRegex.IsMatch(registerDto.username) && loginRegex.IsMatch(registerDto.password);
+        return loginRegex.IsMatch(registerDto.username) && passwordRegex.IsMatch(registerDto.password);
     }
 }

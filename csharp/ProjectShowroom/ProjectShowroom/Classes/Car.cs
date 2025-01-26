@@ -2,7 +2,15 @@
 
 public class Car
 {
-    public string Make { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
     public string Model { get; set; }
-    public DateTime Year { get; set; }
+    public string Manufacturer { get; set; }
+    public decimal Price { get; set; }
+
+    public Car(string model, string manufacturer, decimal price)
+    {
+        Model = model;
+        Manufacturer = manufacturer;
+        Price = price;
+    }
 }
