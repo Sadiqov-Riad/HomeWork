@@ -1,8 +1,8 @@
 ﻿using ProjectShowroom.Data;
 using ProjectShowroom.Interfaces;
+using System.Text.Json;
 
 namespace ProjectShowroom;
-using System.Text.Json;
     
 public class UserService : IUserService
 {
