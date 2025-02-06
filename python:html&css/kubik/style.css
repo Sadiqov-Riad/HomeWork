@@ -1,0 +1,47 @@
+.container {
+    width: 200px;
+    height: 200px;
+    margin: 50px;
+  }
+
+  .sides {
+    position: absolute;
+    width: 100px;
+    height: 80px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 55px;
+    color: white;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .storoni {
+    perspective: 650px;
+    perspective-origin: 300px 300px;
+    transform-style: preserve-3d;
+  }
+  
+  .num1 {
+    background-color: rgba(0, 0, 0, 0.188);
+    transform: translateZ(50px);
+  }
+  .num2 {
+    background-color: rgba(0, 128, 0, 0.983);
+    transform:rotateY(180deg) translateZ(50px);
+  }
+  .num3 {
+    background-color: rgba(255, 94, 0, 0.771);
+    transform:rotateY(90deg) translateZ(50px);
+  }
+  .num4 {
+    background-color: rgba(0, 0, 255, 0.699);
+    transform:rotateY(-90deg) translateZ(50px);
+  }
+  .num5 {
+    background-color: rgba(255, 255, 0, 0.764);
+    transform:rotateX(90deg) translateZ(50px);
+  }
+  .num6 {
+    background: rgba(128, 0, 128, 0.698);
+    transform:rotateX(-90deg) translateZ(50px) ;
+  }

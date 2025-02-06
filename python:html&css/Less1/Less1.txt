@@ -1,0 +1,76 @@
+Задание 1
+Выведите на экран надпись «To be or not to be» на разных строках.
+Ввод:
+
+print("To be\nor not\nto be")
+
+Вывод :
+To be
+or not
+to be
+
+Задание 2
+Выведите на экран надпись «"Life is what happens when you're busy making other plans" John Lennon» на разных строках.
+
+Ввод:
+
+print(""""Life is what happens
+    when
+        you're busy making other plans"
+                                    John Lennon""")
+
+Вывод :
+
+"Life is what happens
+    when
+        you're busy making other plans"
+                                    John Lennon
+
+
+
+-----------------------------------------------------------------
+
+Task3:
+Добавит 2 числа(num1,num2) и выполнить операцию(сложения, вычитания, умножение, деление)
+
+Ввод :
+
+num_1 = 5
+
+num_2 = 4
+
+plus = num_1 + num_2
+
+minus = num_1 - num_2
+
+multiply = num_1 * num_2
+
+division = num_1 / num_2
+
+print(plus,minus,multiply,division)
+
+Вывод :
+
+9 1 20 1.25
+
+
+Task4:
+
+Добавить три числа. Первое число — зарплата за месяц, второе число — сумма месячного платежа по кредиту в банке, третье число ­— задолженность за коммунальные услуги. Необходимо вывести на экран сумму, которая останется у пользователя после всех выплат.
+
+Ввод :
+
+salary = 700
+
+bank_debt = 200
+
+utility_debt = 50
+
+print("Остаток на счету:",salary-bank_debt-utility_debt)
+
+Вывод :
+
+Остаток на счету: 450
+
+
+
