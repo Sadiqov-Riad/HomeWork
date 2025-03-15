@@ -9,4 +9,6 @@ public class OrderDetails
     public decimal TotalPrice { get; set; }
     public Order Order { get; set; }
     public Game Game { get; set; }
+    
+    
 }

@@ -11,13 +11,16 @@ public class UserConfig : IEntityTypeConfiguration<User>
         
         builder.Property(u => u.Name)
             .IsRequired()
-            .HasMaxLength(100);
+            .HasMaxLength(50);
         
-        builder.Property(u => u.Email)
-            .IsRequired()
-            .HasMaxLength(100);
+        builder.HasIndex(u => u.Name)
+            .IsUnique();
         
         builder.Property(u => u.Balance)
-            .HasColumnType("decimal(18,2)");
+            .IsRequired();
+
+        builder.HasMany(u => u.Orders)
+            .WithOne(o => o.User)
+            .HasForeignKey(o => o.UserId);
     }
 }

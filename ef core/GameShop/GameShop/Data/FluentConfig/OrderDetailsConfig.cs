@@ -7,20 +7,20 @@ public class OrderDetailsConfig : IEntityTypeConfiguration<OrderDetails>
 {
     public void Configure(EntityTypeBuilder<OrderDetails> builder)
     {
-        builder.HasKey(oi => oi.Id);
+        builder.HasKey(oc => oc.Id);
+
+        builder.HasOne(oc => oc.Order)
+            .WithMany(o => o.OrderDetails)
+            .HasForeignKey(oc => oc.OrderId);
         
-        builder.Property(oi => oi.Quantity)
+        builder.HasOne(oc => oc.Game)
+            .WithMany(g => g.OrderDetails)
+            .HasForeignKey(oc => oc.GameId);
+        
+        builder.Property(oc => oc.Quantity)
             .IsRequired();
         
-        builder.Property(oi => oi.TotalPrice)
-            .HasColumnType("decimal(18,2)");
-        
-        builder.HasOne(oi => oi.Order)
-            .WithMany(o => o.OrderDetailsList)
-            .HasForeignKey(oi => oi.OrderId);
-        
-        builder.HasOne(oi => oi.Game)
-            .WithMany()
-            .HasForeignKey(oi => oi.GameId);
+        builder.Property(oc => oc.TotalPrice)
+            .IsRequired();
     }
 }

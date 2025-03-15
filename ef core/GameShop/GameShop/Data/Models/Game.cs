@@ -11,4 +11,7 @@ public class Game
     public Genre Genre { get; set; }
     
     public Platform Platform { get; set; }
+    
+    public ICollection<OrderDetails> OrderDetails { get; set; }
 }
+

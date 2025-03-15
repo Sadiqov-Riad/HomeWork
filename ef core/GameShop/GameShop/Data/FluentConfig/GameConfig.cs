@@ -10,18 +10,22 @@ public class GameConfig : IEntityTypeConfiguration<Game>
         builder.HasKey(g => g.Id);
         
         builder.Property(g => g.Title)
-            .IsRequired()
-            .HasMaxLength(150);
+            .HasMaxLength(150)
+            .IsRequired();
+
+        builder.HasOne(g => g.Genre)
+            .WithMany(g => g.Games) 
+            .HasForeignKey(g => g.GenreId);
+
+        builder.HasOne(g => g.Platform)
+            .WithMany(p => p.Games) 
+            .HasForeignKey(g => g.PlatformId);
         
         builder.Property(g => g.Price)
-            .HasColumnType("decimal(18,2)");
+            .IsRequired();
         
-        builder.HasOne(g => g.Genre)
-            .WithMany()
-            .HasForeignKey(g => g.GenreId);
-        
-        builder.HasOne(g => g.Platform)
-            .WithMany()
-            .HasForeignKey(g => g.PlatformId);
+        builder.HasMany(g => g.OrderDetails)
+            .WithOne(oc => oc.Game)  
+            .HasForeignKey(oc => oc.GameId);
     }
 }
