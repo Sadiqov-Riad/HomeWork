@@ -71,21 +71,20 @@ var employees = new List<Employee>
     context.SaveChanges();
 
 
-
     Console.WriteLine("Enter Customer Id: ");
     int customerID = int.Parse(Console.ReadLine());
 
 //LINQ1
 
-    var carsPurchased = context.Sales
-        .Where(s => s.CustomerID == customerID)
-        .Select(s => s.Car)
-        .ToList();
-    
-    foreach (var car in carsPurchased)
-    {
-        Console.WriteLine($"{car.Id} - {car.Year} - {car.Brand} - {car.Model} - {car.Price}");
-    }
+    // var carsPurchased = context.Sales
+    //     .Where(s => s.CustomerID == customerID)
+    //     .Select(s => s.Car)
+    //     .ToList();
+    //
+    // foreach (var car in carsPurchased)
+    // {
+    //     Console.WriteLine($"{car.Id} - {car.Year} - {car.Brand} - {car.Model} - {car.Price}");
+    // }
 
 //LINQ2
 
@@ -98,7 +97,7 @@ var employees = new List<Employee>
     // {
     //     Console.WriteLine($"{res.Id} - {res.CustomerID} - {res.EmployeeID} - {res.CarID} - {res.SaleDate}");
     // }
-    
+    //
 //LING 3
     //
     // var result = context.Sales

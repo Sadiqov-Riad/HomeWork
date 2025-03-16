@@ -17,9 +17,6 @@ public class OrderDetailsConfig : IEntityTypeConfiguration<OrderDetails>
             .WithMany(g => g.OrderDetails)
             .HasForeignKey(oc => oc.GameId);
         
-        builder.Property(oc => oc.Quantity)
-            .IsRequired();
-        
         builder.Property(oc => oc.TotalPrice)
             .IsRequired();
     }

@@ -15,6 +15,9 @@ public class UserConfig : IEntityTypeConfiguration<User>
         
         builder.HasIndex(u => u.Name)
             .IsUnique();
+                
+        builder.Property(u => u.Password)
+            .IsRequired();
         
         builder.Property(u => u.Balance)
             .IsRequired();
