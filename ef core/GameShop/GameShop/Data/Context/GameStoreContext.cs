@@ -45,6 +45,11 @@ public class GameStoreContext : DbContext
             new Platform { Id = 3, Name = "PC" },
             new Platform { Id = 4, Name = "Nintendo Switch" },
         });
+
+        modelBuilder.Entity<User>().HasData(new User[]
+        {
+            new User { Id = 1, Name = "Admin", Email = "admin@.org", Password = "admin", Balance = 0 }
+        });
     }
     
 }

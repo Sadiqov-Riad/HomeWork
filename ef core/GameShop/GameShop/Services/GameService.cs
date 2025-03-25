@@ -16,7 +16,7 @@ public class GameService
         var games = _context.Games.ToList();
         foreach (var game in games)
         {
-            Console.WriteLine($"{game.Id}: {game.Title} ({game.Genre}, {game.Platform}) - {game.Price} манат");
+            Console.WriteLine($"{game.Id}: {game.Title} - {game.Price} манат");
         }
     }
 
@@ -43,6 +43,16 @@ public class GameService
         Console.WriteLine("Покупка успешно завершена!");
     }
 
+    public List<Genre> GetGenres()
+    {
+        return _context.Genres.ToList();
+    }
+
+    public List<Platform> GetPlatforms()
+    {
+        return _context.Platforms.ToList();
+    }
+    
     public void ShowOrderHistory(int userId)
     {
         var orders = _context.Orders.Where(o => o.UserId == userId).Include(o => o.OrderDetails).ToList();
@@ -64,6 +74,7 @@ public class GameService
         _context.SaveChanges();
         Console.WriteLine("Игра добавлена!");
     }
+    
 
     public void RemoveGame(int gameId)
     {

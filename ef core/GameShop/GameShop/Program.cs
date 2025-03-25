@@ -5,111 +5,186 @@ using var context = new GameStoreContext();
 var userService = new UserService(context);
 var gameService = new GameService(context);
 
-        while (true)
-        {
-            Console.WriteLine("1. Регистрация\n2. Вход\n3. Выход");
-            string choice = Console.ReadLine();
-            if (choice == "1")
-            {
-                Console.Write("Имя: ");
-                string name = Console.ReadLine();
-                Console.Write("Email: ");
-                string email = Console.ReadLine();
-                Console.Write("Пароль: ");
-                string password = Console.ReadLine();
-                userService.Register(name, email, password);
-            }
-            else if (choice == "2")
-            {
-                Console.Write("Email: ");
-                string email = Console.ReadLine();
-                Console.Write("Пароль: ");
-                string password = Console.ReadLine();
-                var user = userService.Login(email, password);
-                if (user != null) UserMenu(user, userService, gameService);
-            }
-            else if (choice == "3") break;
-        }
-
-    static void UserMenu(User user, UserService userService, GameService gameService)
+while (true)
+{
+    Console.WriteLine("1. Регистрация\n2. Вход\n3. Выход");
+    string choice = Console.ReadLine();
+            
+    switch (choice)
     {
-        while (true)
+        case "1":
+            Register(userService);
+            break;
+        case "2":
+            Login(userService, gameService);
+            break;
+        case "3":
+            return;
+        default:
+            Console.WriteLine("Неверный ввод. Попробуйте снова.");
+            break;
+    }
+}
+
+static void Register(UserService userService)
+{
+    Console.Write("Имя: ");
+    string name = Console.ReadLine();
+    Console.Write("Email: ");
+    string email = Console.ReadLine();
+    Console.Write("Пароль: ");
+    string password = Console.ReadLine();
+
+    if (userService.Register(name, email, password))
+    {
+        Console.WriteLine("Регистрация успешна!");
+    }
+    else
+    {
+        Console.WriteLine("Ошибка регистрации. Возможно, пользователь уже существует.");
+    }
+}
+
+static void Login(UserService userService, GameService gameService)
+{
+    Console.Write("Email: ");
+    string email = Console.ReadLine();
+    Console.Write("Пароль: ");
+    string password = Console.ReadLine();
+
+    var user = userService.Login(email, password);
+    if (user != null)
+    {
+        Console.WriteLine($"Добро пожаловать, {user.Name}!");
+        UserMenu(user, gameService, userService);
+    }
+    else
+    {
+        Console.WriteLine("Неверные данные");
+    }
+}
+
+static void UserMenu(User user, GameService gameService, UserService userService)
+{
+    
+    while (true)
+    {
+        
+        Console.WriteLine("1. Просмотр каталога игр\n2. Пополнить баланс\n3. Купить игру\n4. Моя информация\n6. Выйти");
+        if (user.Name == "Admin")
         {
-            Console.WriteLine("1. Пополнить баланс\n2. Просмотр каталога\n3. Купить игру\n4. История покупок\n5. Админ (CRUD игр)\n6. Выйти");
-            string choice = Console.ReadLine();
-            if (choice == "1")
-            {
-                decimal amount = GetDecimalInput("Сумма: ");
-                userService.AddBalance(user.Id, amount);
-            }
-            else if (choice == "2")
-            {
+            Console.WriteLine("7. Добавить игру\n8. Удалить игру\n9. Редактировать игру");
+        }
+        string choice = Console.ReadLine();
+        
+        switch (choice)
+        {
+            case "1":
                 gameService.ShowCatalog();
-            }
-            else if (choice == "3")
-            {
-                int gameId = GetIntInput("ID игры: ");
-                gameService.BuyGame(user.Id, gameId);
-            }
-            else if (choice == "4")
-            {
-                gameService.ShowOrderHistory(user.Id);
-            }
-            else if (choice == "5" && user.Email == "admin@example.com")
-            {
-                AdminMenu(gameService);
-            }
-            else if (choice == "6") break;
-        }
-    }
-
-    static void AdminMenu(GameService gameService)
-    {
-        while (true)
-        {
-            Console.WriteLine("1. Добавить игру\n2. Удалить игру\n3. Назад");
-            string choice = Console.ReadLine();
-            if (choice == "1")
-            {
-                Console.Write("Название: ");
+                break;
+            case "2":
+                Console.Write("Введите сумму: ");
+                if (decimal.TryParse(Console.ReadLine(), out decimal amount))
+                {
+                    userService.AddBalance(user.Id, amount);
+                    Console.WriteLine($"Баланс пополнен! Текущий баланс: {userService.GetBalance(user.Id)}");
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка ввода");
+                }
+                break;
+            case "3":
+                Console.Write("Введите ID игры: ");
+                if (int.TryParse(Console.ReadLine(), out int gameId))
+                {
+                    gameService.BuyGame(user.Id, gameId);
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка ввода");
+                }
+                break;
+            case "4":
+                userService.ShowUserInfo(user.Id);
+                break;
+            case "5":
+                return;
+            case "6" when user.Name == "Admin":
+                Console.Write("Введите название игры: ");
                 string title = Console.ReadLine();
-                Console.Write("Жанр: ");
-                string genre = Console.ReadLine();
-                Console.Write("Платформа: ");
-                string platform = Console.ReadLine();
-                decimal price = GetDecimalInput("Цена: ");
                 
-            }
-            else if (choice == "2")
-            {
-                int gameId = GetIntInput("ID игры: ");
-                gameService.RemoveGame(gameId);
-            }
-            else if (choice == "3") break;
+                var genres = gameService.GetGenres();
+                Console.WriteLine("Выберите жанр:");
+                Console.WriteLine("1.Action\n2.Adventure\n3.Horror\n4.Romance\n");
+                int genreIndex = int.Parse(Console.ReadLine()) - 1;
+                
+                var platforms = gameService.GetPlatforms();
+                Console.WriteLine("Выберите платформу:");
+                Console.WriteLine("1.Playstation\n2.Xbox\n3.PC\n4.Nintendo Switch\n");
+                int platformIndex = int.Parse(Console.ReadLine()) - 1;
+                
+                Console.Write("Введите цену: ");
+                if (decimal.TryParse(Console.ReadLine(), out decimal price))
+                {
+                    gameService.AddGame(title, genres[genreIndex], platforms[platformIndex], price);
+                    Console.WriteLine("Игра добавлена!");
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка ввода");
+                }
+                break;
+            case "7" when user.Name == "Admin":
+                Console.Write("Введите ID игры для удаления: ");
+                if (int.TryParse(Console.ReadLine(), out int deleteGameId))
+                {
+                    gameService.RemoveGame(deleteGameId);
+                    Console.WriteLine("Игра удалена!");
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка ввода");
+                }
+                break;
+            case "8" when user.Name == "Admin":
+                Console.Write("Введите ID игры для редактирования: ");
+                if (int.TryParse(Console.ReadLine(), out int editGameId))
+                {
+                    Console.Write("Введите новое название игры: ");
+                    string newTitle = Console.ReadLine();
+                    
+                    var Genres = gameService.GetGenres(); 
+                    var Platforms = gameService.GetPlatforms(); 
+                    
+                    Console.WriteLine("Выберите новый жанр:");
+                    Console.WriteLine("1.Action\n2.Adventure\n3.Horror\n4.Romance\n");
+                    int newGenreIndex = int.Parse(Console.ReadLine()) - 1;
+
+                    Console.WriteLine("Выберите новую платформу:");
+                    Console.WriteLine("1.Playstation\n2.Xbox\n3.PC\n4.Nintendo Switch\n");
+                    int newPlatformIndex = int.Parse(Console.ReadLine()) - 1;
+
+                    Console.Write("Введите новую цену: ");
+
+                    if (decimal.TryParse(Console.ReadLine(), out decimal newPrice))
+                    {
+                        gameService.EditGame(editGameId, newTitle, Genres[newGenreIndex], Platforms[newPlatformIndex], newPrice);
+                        Console.WriteLine("Игра обновлена!");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ошибка ввода");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка ввода");
+                }
+                break;
+            default:
+                Console.WriteLine("Неверный ввод");
+                break;
         }
     }
-
-    static int GetIntInput(string prompt)
-    {
-        int result;
-        while (true)
-        {
-            Console.Write(prompt);
-            if (int.TryParse(Console.ReadLine(), out result)) break;
-            Console.WriteLine("Ошибка: Введите целое число.");
-        }
-        return result;
-    }
-
-    static decimal GetDecimalInput(string prompt)
-    {
-        decimal result;
-        while (true)
-        {
-            Console.Write(prompt);
-            if (decimal.TryParse(Console.ReadLine(), out result)) break;
-            Console.WriteLine("Ошибка: Введите корректное число.");
-        }
-
-        return result;
-    }
+}
