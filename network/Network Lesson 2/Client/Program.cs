@@ -2,7 +2,7 @@
 using System.Text;
 
 using var client = new TcpClient();
-await client.ConnectAsync("192.168.0.101", 3003);
+await client.ConnectAsync("Ваш IP адрес", 3003);
 
 using NetworkStream stream = client.GetStream();
 using var reader = new StreamReader(stream, Encoding.UTF8);
