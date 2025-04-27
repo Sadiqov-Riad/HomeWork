@@ -9,7 +9,7 @@ class Program
         try
         {
             using var client = new TcpClient();
-            await client.ConnectAsync("127.0.0.1", 3003);
+            await client.ConnectAsync("Ваш IP адрес", 3003);
             using var networkStream = client.GetStream();
             using var writer = new StreamWriter(networkStream, Encoding.UTF8) { AutoFlush = true };
             using var reader = new StreamReader(networkStream, Encoding.UTF8);
