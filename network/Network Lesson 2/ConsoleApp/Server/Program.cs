@@ -85,5 +85,3 @@ while (true)
     await writer.WriteLineAsync(string.Join("", board));
     await writer.WriteLineAsync("Ход сервера");
 }
-
-
