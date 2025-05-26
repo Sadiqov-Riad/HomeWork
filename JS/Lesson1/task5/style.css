@@ -1,0 +1,13 @@
+body {
+  font-family: sans-serif;
+  background-color: #fff7ee;
+}
+
+li {
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.selected {
+  background-color: #ffa07a; 
+}
