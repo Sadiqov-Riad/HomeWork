@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+
+.container {
+    padding: 5px 0 10px 0;
+    background-color: bisque;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.container label {
+    display: block;
+    text-align: center;
+}
+
+.container input {
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+}
