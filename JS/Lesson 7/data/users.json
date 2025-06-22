@@ -6,5 +6,15 @@
   {
     "username": "Faik",
     "password": "$2b$10$Bha/Jc3d4uYWkt7XaAYUHu6jQQgz.VlvR9I2TbiruGjSYN0TgzT2m"
+  },
+  {
+    "username": "Raul",
+    "password": "$2b$10$UNCLIDFpGlTRo8TO8IYWWugCoY9oLNMIAUi1U41Lc8ZZD3BswBVRm"
+  },
+  {
+    "username": "Ramazan",
+    "password": "$2b$10$a.mTfUYwAh3C5eQmYEIL4.uJb1DGmshrtvForYNpe3x0QMa6uybeO",
+    "lat": 40.488723933381294,
+    "lng": 49.663852929687486
   }
 ]

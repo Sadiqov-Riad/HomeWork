@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <!-- API ключ от Google Maps -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYtWxJqEhvOUyGPEqUq4_zHcGcuLkNI5I&callback=initMap"></script>
+    <title>Choose your location</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Choose your location</h1>
+        <p>Click on the map to select your location</p>
+    </div>
+
+    <div class="map-container">
+
+        <div id="map"></div>
+            <div class="controls">
+        <button id="confirmBtn" class="btn btn-confirm" disabled>
+            Confirm
+        </button>
+    </div>
+    </div>
+
+</body>
+</html>
