@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>News App</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+        <div class="container">
+        <div class="header">
+            <h1>News App</h1>
+            <p>Актуальные новости со всего мира</p>
+        </div>
+
+        <div class="controls">
+            <div class="category-selector" id="categorySelector">
+                <!-- Категории будут добавлены динамически -->
+            </div>
+            
+
+        </div>
+
+        <div class="news-container">
+            <div id="newsContent">
+                <div class="no-results">
+                    Введите API ключ и выберите категорию для загрузки новостей!!!
+                </div>
+            </div>
+        </div>
+
+        <div class="pagination" id="pagination" style="display: none;">
+            <button id="prevBtn">← Предыдущая</button>
+            <span class="page-info" id="pageInfo">Страница 1</span>
+            <button id="nextBtn">Следующая →</button>
+        </div>
+    </div>
+
+<script type="module" src="./index.js"></script>
+</body>
+</html>
