@@ -68,7 +68,6 @@ export class NewsApp {
   private apiKey = 'API_KEY_HERE';
 ...
   }
-
 ```
 
 
