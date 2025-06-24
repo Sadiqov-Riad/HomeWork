@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+  font-family: sans-serif;
+  margin-top: 40px;
+}
+
+.DisplayInfo {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.CityInfo {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fafafa;
+}
+
+.Flag {
+  width: 100px;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.CityInfo-city {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.CityInfo-country {
+  font-size: 18px;
+  color: #34495e;
+  margin-bottom: 8px;
+}
+
+.Foundation-year {
+  font-size: 16px;
+  color: #7f8c8d;
+}
