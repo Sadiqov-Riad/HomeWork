@@ -1,12 +1,11 @@
 import './App.css'
+import LikeButton  from  './components/LikeButton'
 
 function App() {
 
   return (
     <>
-    <div className="bg-black text-white">
-      everything is working
-    </div>
+    <LikeButton title="x"></LikeButton>
     </>
   )
 }
