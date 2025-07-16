@@ -1,13 +1,15 @@
 import './App.css'
-import LikeButton  from  './components/LikeButton'
+import Sidebar from './components/Sidebar';
 
 function App() {
-
   return (
     <>
-    <LikeButton title="x"></LikeButton>
+      <Sidebar />
+      <main className="flex-1 p-8">
+        {/* Main content goes here */}
+      </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
