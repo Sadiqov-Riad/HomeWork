@@ -38,7 +38,7 @@ function SidebarInner() {
   const { toggleSidebar } = useSidebar();
 
   return (
-    <>
+    <div className="flex flex-col h-full">
       {/* Header with toggle button on mobile */}
       <div className="flex items-center gap-3 px-6 py-6 border-b border-gray-100 mb-4">
         {isMobile && (
@@ -54,7 +54,7 @@ function SidebarInner() {
         )}
         <span className="text-2xl font-extrabold text-blue-700 tracking-tight">RideNow</span>
       </div>
-      <SidebarMenu className="px-3">
+      <SidebarMenu className="px-3 flex-1">
         {navLinks.map(({ label, icon: Icon, to }) => {
           const isActive = location.pathname === to;
           return (
@@ -88,20 +88,18 @@ function SidebarInner() {
           );
         })}
       </SidebarMenu>
-    </>
+    </div>
   );
 }
 
 function Sidebar() {
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
-        <ShadSidebar className="bg-white border-r border-gray-200 shadow-xl min-h-screen w-72 max-w-full md:relative md:translate-x-0">
-          <SidebarContent>
-            <SidebarInner />
-          </SidebarContent>
-        </ShadSidebar>
-      </div>
+      <ShadSidebar className="backdrop-blur bg-white dark:bg-[#1A2A3A] border border-gray-200/60 dark:border-gray-800/60 min-h-screen w-full max-w-full md:relative md:translate-x-0 flex flex-col">
+        <SidebarContent className="h-full flex flex-col">
+          <SidebarInner />
+        </SidebarContent>
+      </ShadSidebar>
     </SidebarProvider>
   );
 }

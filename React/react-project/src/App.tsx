@@ -4,12 +4,15 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import { router } from './routes';
 import './lib/i18n';
+import { ThemeProvider } from './components/shared/theme-provider';
 
 function App() {
   return (
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+    <ThemeProvider>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    </ThemeProvider>
   );
 }
 
