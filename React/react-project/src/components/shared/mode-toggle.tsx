@@ -1,37 +1,45 @@
 import { Moon, Sun } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu"
 import { useTheme } from "./theme-provider"
+import { useEffect, useState } from "react";
 
 export function ModeToggle() {
-  const { setTheme } = useTheme()
+  const { theme, setTheme } = useTheme();
+  const [resolvedTheme, setResolvedTheme] = useState<'light' | 'dark'>(
+    typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  );
+
+  useEffect(() => {
+    if (theme === 'system') {
+      const mql = window.matchMedia('(prefers-color-scheme: dark)');
+      const update = () => setResolvedTheme(mql.matches ? 'dark' : 'light');
+      update();
+      mql.addEventListener('change', update);
+      return () => mql.removeEventListener('change', update);
+    } else {
+      setResolvedTheme(theme);
+    }
+  }, [theme]);
+
+  // Исправленная логика: если сейчас system и resolvedTheme === 'dark', следующий клик = light
+  let nextTheme: 'light' | 'dark' | 'system';
+  if (theme === 'light') {
+    nextTheme = 'dark';
+  } else {
+    nextTheme = resolvedTheme === 'dark' ? 'light' : 'dark';
+  }
+  const handleClick = () => setTheme(nextTheme);
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  )
+    <Button variant="outline" size="icon" onClick={handleClick}>
+      <Sun className={
+        `h-[1.2rem] w-[1.2rem] transition-all ${resolvedTheme === 'light' ? '' : 'scale-0 rotate-90 absolute'}`
+      } />
+      <Moon className={
+        `h-[1.2rem] w-[1.2rem] transition-all ${resolvedTheme === 'dark' ? '' : 'scale-0 rotate-90 absolute'}`
+      } />
+      <span className="sr-only">Toggle theme</span>
+    </Button>
+  );
 }

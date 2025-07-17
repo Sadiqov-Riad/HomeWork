@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { 
@@ -21,6 +20,9 @@ import {
 import { useIsMobile } from "../../hooks/use-mobile";
 import { Button } from "../ui/button";
 import { cn } from "../../lib/utils";
+import { Separator } from "../ui/separator";
+import { Input } from "../ui/input";
+import React from 'react';
 
 const navLinks = [
   { label: 'sidebar.dashboard', icon: Home, to: '/dashboard' },
@@ -31,56 +33,76 @@ const navLinks = [
   { label: 'sidebar.support', icon: HelpCircle, to: '/support' },
 ];
 
-function SidebarInner() {
+function SidebarMenuContent({ onItemClick }: { onItemClick?: () => void }) {
   const { t } = useTranslation();
   const location = useLocation();
   const isMobile = useIsMobile();
   const { toggleSidebar } = useSidebar();
-
   return (
     <div className="flex flex-col h-full">
-      {/* Header with toggle button on mobile */}
       <div className="flex items-center gap-3 px-6 py-6 border-b border-gray-100 mb-4">
-        {isMobile && (
-          <Button
-            variant="ghost"
-            size="icon"
-            className="mr-2"
-            onClick={toggleSidebar}
-            aria-label="Open sidebar"
-          >
-            <Menu className="w-6 h-6 text-blue-700" />
-          </Button>
-        )}
-        <span className="text-2xl font-extrabold text-blue-700 tracking-tight">RideNow</span>
+        <span className="text-2xl font-extrabold tracking-tight text-blue-700 dark:text-[color:var(--sidebar-primary-foreground)]">RideNow</span>
       </div>
       <SidebarMenu className="px-3 flex-1">
-        {navLinks.map(({ label, icon: Icon, to }) => {
-          const isActive = location.pathname === to;
+        {navLinks.map(({ label, icon: Icon, to }, idx) => {
+          if (label === 'sidebar.settings') {
+            return (
+              <React.Fragment key={label}>
+                <Separator className="my-2" />
+                <SidebarMenuItem>
+                  <NavLink
+                    to={to}
+                    className={cn(
+                      "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-150 group text-base font-medium",
+                      location.pathname === to
+                        ? "bg-blue-100 text-blue-700 shadow dark:bg-[color:var(--sidebar-accent)] dark:text-[color:var(--sidebar-primary-foreground)]"
+                        : "text-gray-700 dark:text-[color:var(--sidebar-foreground)]"
+                    )}
+                    onClick={() => {
+                      if (isMobile) {
+                        toggleSidebar();
+                      }
+                      onItemClick?.();
+                    }}
+                  >
+                    <Icon
+                      className={cn(
+                        "w-5 h-5",
+                        location.pathname === to
+                          ? "text-blue-700 dark:text-[color:var(--sidebar-primary-foreground)]"
+                          : "text-gray-400"
+                      )}
+                    />
+                    {t(label)}
+                  </NavLink>
+                </SidebarMenuItem>
+              </React.Fragment>
+            );
+          }
           return (
             <SidebarMenuItem key={label}>
               <NavLink
                 to={to}
                 className={cn(
                   "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors duration-150 group text-base font-medium",
-                  isActive
-                    ? "bg-blue-100 text-blue-700 shadow"
-                    : "text-gray-700 hover:bg-blue-50 hover:text-blue-700"
+                  location.pathname === to
+                    ? "bg-blue-100 text-blue-700 shadow dark:bg-[color:var(--sidebar-accent)] dark:text-[color:var(--sidebar-primary-foreground)]"
+                    : "text-gray-700 dark:text-[color:var(--sidebar-foreground)]"
                 )}
                 onClick={() => {
-                  // Close mobile sidebar when clicking a link
                   if (isMobile) {
                     toggleSidebar();
                   }
+                  onItemClick?.();
                 }}
               >
-                <Icon 
+                <Icon
                   className={cn(
                     "w-5 h-5",
-                    isActive 
-                      ? "text-blue-700" 
-                      : "text-gray-400 group-hover:text-blue-600"
-                  )} 
+                    location.pathname === to
+                      ? "text-blue-700 dark:text-[color:var(--sidebar-primary-foreground)]"
+                      : "text-gray-400"
+                  )}
                 />
                 {t(label)}
               </NavLink>
@@ -92,12 +114,14 @@ function SidebarInner() {
   );
 }
 
+export { SidebarMenuContent };
+
 function Sidebar() {
   return (
     <SidebarProvider>
       <ShadSidebar className="backdrop-blur bg-white dark:bg-[#1A2A3A] border border-gray-200/60 dark:border-gray-800/60 min-h-screen w-full max-w-full md:relative md:translate-x-0 flex flex-col">
         <SidebarContent className="h-full flex flex-col">
-          <SidebarInner />
+          <SidebarMenuContent />
         </SidebarContent>
       </ShadSidebar>
     </SidebarProvider>
