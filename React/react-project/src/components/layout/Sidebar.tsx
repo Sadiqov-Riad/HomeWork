@@ -15,7 +15,7 @@ import {
   Bus, 
   Settings, 
   HelpCircle, 
-  Menu 
+  Menu
 } from "lucide-react";
 import { useIsMobile } from "../../hooks/use-mobile";
 import { Button } from "../ui/button";
@@ -43,6 +43,7 @@ function SidebarMenuContent({ onItemClick }: { onItemClick?: () => void }) {
       <div className="flex items-center gap-3 px-6 py-6 border-b border-gray-100 mb-4">
         <span className="text-2xl font-extrabold tracking-tight text-blue-700 dark:text-[color:var(--sidebar-primary-foreground)]">RideNow</span>
       </div>
+      
       <SidebarMenu className="px-3 flex-1">
         {navLinks.map(({ label, icon: Icon, to }, idx) => {
           if (label === 'sidebar.settings') {
