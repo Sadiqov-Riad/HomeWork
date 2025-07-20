@@ -1,0 +1,44 @@
+{
+  "sidebar": {
+    "dashboard": "Nástěnka",
+    "booking": "Rezervace",
+    "schedule": "Rozvrh",
+    "busManagement": "Správa autobusů",
+    "settings": "Nastavení",
+    "support": "Podpora"
+  },
+  "common": {
+    "loading": "Načítání...",
+    "error": "Chyba",
+    "success": "Úspěch",
+    "cancel": "Zrušit",
+    "save": "Uložit",
+    "delete": "Smazat",
+    "edit": "Upravit",
+    "add": "Přidat",
+    "search": "Hledat",
+    "filter": "Filtr",
+    "sort": "Seřadit"
+  },
+  "profile": {
+    "myAccount": "Můj účet",
+    "profile": "Profil",
+    "settings": "Nastavení",
+    "language": "Jazyk",
+    "theme": "Téma",
+    "light": "Světlé",
+    "dark": "Tmavé",
+    "system": "Systém",
+    "logout": "Odhlásit se",
+    "english": "English",
+    "russian": "Русский",
+    "french": "Français",
+    "spanish": "Español",
+    "japanese": "日本語",
+    "chinese": "中文",
+    "turkish": "Türkçe",
+    "italian": "Italiano",
+    "czech": "Čeština",
+    "korean": "한국어"
+  }
+} 

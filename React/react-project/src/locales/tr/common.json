@@ -1,0 +1,44 @@
+{
+  "sidebar": {
+    "dashboard": "Gösterge Paneli",
+    "booking": "Rezervasyon",
+    "schedule": "Program",
+    "busManagement": "Otobüs Yönetimi",
+    "settings": "Ayarlar",
+    "support": "Destek"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "add": "Ekle",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "sort": "Sırala"
+  },
+  "profile": {
+    "myAccount": "Hesabım",
+    "profile": "Profil",
+    "settings": "Ayarlar",
+    "language": "Dil",
+    "theme": "Tema",
+    "light": "Açık",
+    "dark": "Koyu",
+    "system": "Sistem",
+    "logout": "Çıkış yap",
+    "english": "English",
+    "russian": "Русский",
+    "french": "Français",
+    "spanish": "Español",
+    "japanese": "日本語",
+    "chinese": "中文",
+    "turkish": "Türkçe",
+    "italian": "Italiano",
+    "czech": "Čeština",
+    "korean": "한국어"
+  }
+} 

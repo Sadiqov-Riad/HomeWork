@@ -19,5 +19,26 @@
     "search": "Search",
     "filter": "Filter",
     "sort": "Sort"
+  },
+  "profile": {
+    "myAccount": "My Account",
+    "profile": "Profile",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "logout": "Log out",
+    "english": "English",
+    "russian": "Русский",
+    "french": "Français",
+    "spanish": "Español",
+    "japanese": "日本語",
+    "chinese": "中文",
+    "turkish": "Türkçe",
+    "italian": "Italiano",
+    "czech": "Čeština",
+    "korean": "한국어"
   }
 } 

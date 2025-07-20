@@ -1,0 +1,44 @@
+{
+  "sidebar": {
+    "dashboard": "ダッシュボード",
+    "booking": "予約",
+    "schedule": "スケジュール",
+    "busManagement": "バス管理",
+    "settings": "設定",
+    "support": "サポート"
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "delete": "削除",
+    "edit": "編集",
+    "add": "追加",
+    "search": "検索",
+    "filter": "フィルター",
+    "sort": "並び替え"
+  },
+  "profile": {
+    "myAccount": "マイアカウント",
+    "profile": "プロフィール",
+    "settings": "設定",
+    "language": "言語",
+    "theme": "テーマ",
+    "light": "ライト",
+    "dark": "ダーク",
+    "system": "システム",
+    "logout": "ログアウト",
+    "english": "English",
+    "russian": "Русский",
+    "french": "Français",
+    "spanish": "Español",
+    "japanese": "日本語",
+    "chinese": "中文",
+    "turkish": "Türkçe",
+    "italian": "Italiano",
+    "czech": "Čeština",
+    "korean": "한국어"
+  }
+} 

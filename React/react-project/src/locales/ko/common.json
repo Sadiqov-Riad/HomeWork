@@ -1,0 +1,44 @@
+{
+  "sidebar": {
+    "dashboard": "대시보드",
+    "booking": "예약",
+    "schedule": "일정",
+    "busManagement": "버스 관리",
+    "settings": "설정",
+    "support": "지원"
+  },
+  "common": {
+    "loading": "로딩 중...",
+    "error": "오류",
+    "success": "성공",
+    "cancel": "취소",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "편집",
+    "add": "추가",
+    "search": "검색",
+    "filter": "필터",
+    "sort": "정렬"
+  },
+  "profile": {
+    "myAccount": "내 계정",
+    "profile": "프로필",
+    "settings": "설정",
+    "language": "언어",
+    "theme": "테마",
+    "light": "밝은",
+    "dark": "어두운",
+    "system": "시스템",
+    "logout": "로그아웃",
+    "english": "English",
+    "russian": "Русский",
+    "french": "Français",
+    "spanish": "Español",
+    "japanese": "日本語",
+    "chinese": "中文",
+    "turkish": "Türkçe",
+    "italian": "Italiano",
+    "czech": "Čeština",
+    "korean": "한국어"
+  }
+} 

@@ -1,0 +1,44 @@
+{
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "booking": "Prenotazione",
+    "schedule": "Programma",
+    "busManagement": "Gestione Autobus",
+    "settings": "Impostazioni",
+    "support": "Supporto"
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "error": "Errore",
+    "success": "Successo",
+    "cancel": "Annulla",
+    "save": "Salva",
+    "delete": "Elimina",
+    "edit": "Modifica",
+    "add": "Aggiungi",
+    "search": "Cerca",
+    "filter": "Filtra",
+    "sort": "Ordina"
+  },
+  "profile": {
+    "myAccount": "Il mio account",
+    "profile": "Profilo",
+    "settings": "Impostazioni",
+    "language": "Lingua",
+    "theme": "Tema",
+    "light": "Chiaro",
+    "dark": "Scuro",
+    "system": "Sistema",
+    "logout": "Disconnetti",
+    "english": "English",
+    "russian": "Русский",
+    "french": "Français",
+    "spanish": "Español",
+    "japanese": "日本語",
+    "chinese": "中文",
+    "turkish": "Türkçe",
+    "italian": "Italiano",
+    "czech": "Čeština",
+    "korean": "한국어"
+  }
+} 

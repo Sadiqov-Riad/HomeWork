@@ -19,5 +19,26 @@
     "search": "Поиск",
     "filter": "Фильтр",
     "sort": "Сортировка"
+  },
+  "profile": {
+    "myAccount": "Мой аккаунт",
+    "profile": "Профиль",
+    "settings": "Настройки",
+    "language": "Язык",
+    "theme": "Тема",
+    "light": "Светлая",
+    "dark": "Темная",
+    "system": "Системная",
+    "logout": "Выйти",
+    "english": "English",
+    "russian": "Русский",
+    "french": "Français",
+    "spanish": "Español",
+    "japanese": "日本語",
+    "chinese": "中文",
+    "turkish": "Türkçe",
+    "italian": "Italiano",
+    "czech": "Čeština",
+    "korean": "한국어"
   }
 } 

@@ -1,0 +1,44 @@
+{
+  "sidebar": {
+    "dashboard": "仪表板",
+    "booking": "预订",
+    "schedule": "时刻表",
+    "busManagement": "巴士管理",
+    "settings": "设置",
+    "support": "支持"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "cancel": "取消",
+    "save": "保存",
+    "delete": "删除",
+    "edit": "编辑",
+    "add": "添加",
+    "search": "搜索",
+    "filter": "筛选",
+    "sort": "排序"
+  },
+  "profile": {
+    "myAccount": "我的账户",
+    "profile": "个人资料",
+    "settings": "设置",
+    "language": "语言",
+    "theme": "主题",
+    "light": "浅色",
+    "dark": "深色",
+    "system": "系统",
+    "logout": "退出登录",
+    "english": "English",
+    "russian": "Русский",
+    "french": "Français",
+    "spanish": "Español",
+    "japanese": "日本語",
+    "chinese": "中文",
+    "turkish": "Türkçe",
+    "italian": "Italiano",
+    "czech": "Čeština",
+    "korean": "한국어"
+  }
+} 
