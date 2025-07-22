@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Страница бронирования билетов
+ * @returns {JSX.Element}
+ */
 const Booking: React.FC = () => {
   return (
     <div>

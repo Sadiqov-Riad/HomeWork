@@ -33,6 +33,12 @@ const navLinks = [
   { label: 'sidebar.support', icon: HelpCircle, to: '/support' },
 ];
 
+/**
+ * Контент меню боковой панели, отображает навигационные элементы
+ * @param {Object} props
+ * @param {() => void} [props.onItemClick] - обработчик клика по пункту меню
+ * @returns {JSX.Element}
+ */
 function SidebarMenuContent({ onItemClick }: { onItemClick?: () => void }) {
   const { t } = useTranslation();
   const location = useLocation();
@@ -117,10 +123,14 @@ function SidebarMenuContent({ onItemClick }: { onItemClick?: () => void }) {
 
 export { SidebarMenuContent };
 
+/**
+ * Боковая панель навигации приложения
+ * @returns {JSX.Element}
+ */
 function Sidebar() {
   return (
     <SidebarProvider>
-      <ShadSidebar className="backdrop-blur bg-white dark:bg-[#1A2A3A] border border-gray-200/60 dark:border-gray-800/60 min-h-screen w-full max-w-full md:relative md:translate-x-0 flex flex-col">
+      <ShadSidebar className="backdrop-blur bg-white dark:bg-[#1A2A3A] border border-gray-200/60 dark:border-gray-800/60 min-h-screen w-64 md:relative md:translate-x-0 flex flex-col">
         <SidebarContent className="h-full flex flex-col">
           <SidebarMenuContent />
         </SidebarContent>

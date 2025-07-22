@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Главная страница панели управления
+ * @returns {JSX.Element}
+ */
 const Dashboard: React.FC = () => {
   return (
     <div>

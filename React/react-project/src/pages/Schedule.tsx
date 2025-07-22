@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Страница расписания автобусов
+ * @returns {JSX.Element}
+ */
 const Schedule: React.FC = () => {
   return (
     <div>

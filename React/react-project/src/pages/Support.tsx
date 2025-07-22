@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * Страница поддержки пользователей
+ * @returns {JSX.Element}
+ */
 const Support: React.FC = () => {
   return (
     <div>
