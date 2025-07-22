@@ -31,7 +31,7 @@ const Layout: React.FC = () => {
 
   return (
     <div className="flex min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Sidebar />
+      {!isMobile && <Sidebar />}
       <main className="flex-1 p-4 md:p-8">
         <Outlet />
       </main>
