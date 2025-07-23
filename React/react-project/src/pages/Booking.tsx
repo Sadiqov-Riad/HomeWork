@@ -1,113 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 /**
  * Страница бронирования билетов
  * @returns {JSX.Element}
  */
-type PaymentStatus = 'Pending' | 'Completed';
-
-interface BookingRow {
-  passenger: string;
-  phone: string;
-  route: string;
-  date: string;
-  time: string;
-  seats: string;
-  payment: PaymentStatus;
-}
-
-const bookings: BookingRow[] = [
-  {
-    passenger: 'Md. Shiraj',
-    phone: '+1 456 576 897',
-    route: 'Dha to Ctg',
-    date: '12 Nov 2024',
-    time: '12:00 pm',
-    seats: 'A1 - A2',
-    payment: 'Pending',
-  },
-  {
-    passenger: 'Md. Shiraj',
-    phone: '+1 456 576 897',
-    route: 'Dha to Ctg',
-    date: '12 Nov 2024',
-    time: '12:00 pm',
-    seats: 'A1 - A2',
-    payment: 'Completed',
-  },
-  {
-    passenger: 'Anna Ivanova',
-    phone: '+7 999 123 45 67',
-    route: 'Moscow to SPB',
-    date: '15 Nov 2024',
-    time: '09:30 am',
-    seats: 'B3',
-    payment: 'Pending',
-  },
-  {
-    passenger: 'John Doe',
-    phone: '+44 20 7946 0958',
-    route: 'London to Oxford',
-    date: '18 Nov 2024',
-    time: '03:15 pm',
-    seats: 'C2 - C3',
-    payment: 'Completed',
-  },
-  {
-    passenger: 'Maria Rossi',
-    phone: '+39 06 6982 1234',
-    route: 'Rome to Milan',
-    date: '20 Nov 2024',
-    time: '07:00 am',
-    seats: 'D1',
-    payment: 'Pending',
-  },
-  {
-    passenger: 'Li Wei',
-    phone: '+86 10 1234 5678',
-    route: 'Beijing to Shanghai',
-    date: '22 Nov 2024',
-    time: '10:45 am',
-    seats: 'E5 - E6',
-    payment: 'Completed',
-  },
-  {
-    passenger: 'Jane Smith',
-    phone: '+1 234 567 8901',
-    route: 'NYC to Boston',
-    date: '25 Nov 2024',
-    time: '05:30 pm',
-    seats: 'F2',
-    payment: 'Pending',
-  },
-  {
-    passenger: 'Carlos García',
-    phone: '+34 91 123 4567',
-    route: 'Madrid to Barcelona',
-    date: '28 Nov 2024',
-    time: '08:00 am',
-    seats: 'G1 - G2',
-    payment: 'Completed',
-  },
-];
+import type { PaymentStatus } from '../data/bookingList';
+import { bookings } from '../data/bookingList';
 
 const statusStyles: Record<PaymentStatus, string> = {
   Pending: 'bg-orange-50 text-orange-500 dark:bg-orange-900/40 dark:text-orange-200',
   Completed: 'bg-teal-50 text-teal-600 dark:bg-teal-900/40 dark:text-teal-200',
 };
 
+const months = [
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
+];
+
+const MonthSelector: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState('Monthly');
+  return (
+    <div>
+      <div className="relative">
+        <button
+          className="border border-gray-200 rounded-lg px-4 py-2 flex items-center gap-2 text-base font-medium shadow-sm bg-white dark:bg-black/40 dark:border-gray-700 focus:outline-none"
+          onClick={() => setOpen((v) => !v)}
+        >
+          {selected}
+          <svg
+            className={`h-4 w-4 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M7 10l5 5 5-5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+        {open && (
+          <ul className="absolute left-0 mt-2 w-full bg-white dark:bg-black/80 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-10 max-h-60 overflow-y-auto">
+            <li
+              className="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
+              onClick={() => { setSelected('Monthly'); setOpen(false); }}
+            >
+              Monthly
+            </li>
+            {months.map((month) => (
+              <li
+                key={month}
+                className="px-4 py-2 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
+                onClick={() => { setSelected(month); setOpen(false); }}
+              >
+                {month}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+};
+
 const Booking: React.FC = () => {
   return (
-    <div className="rounded-2xl dark:bg-gray-900/40  shadow p-3 mt-14  md:p-8 w-full max-w-full overflow-x-auto">
+    <div className="rounded-2xl dark:bg-gray-900/40  shadow p-3 mt-14 sm:mt-0 md:p-8 w-full max-w-full overflow-x-auto">
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <h2 className="text-2xl font-bold">All Booking List</h2>
         <div className="flex gap-2 items-center">
           <button className="bg-blue-600 hover:bg-blue-800 text-white font-semibold rounded-lg px-6 py-2 flex items-center gap-2 text-base shadow">
             Add New <span className="text-lg">+</span>
           </button>
-          <button className="border border-gray-200 rounded-lg px-4 py-2 flex items-center gap-2 text-base font-medium shadow-sm bg-white dark:bg-black/40 dark:border-gray-700">
-            Monthly <svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-          </button>
+          <MonthSelector />
         </div>
       </div>
       <div className="overflow-x-auto mt-6 mb-8 sm:mb-0">
