@@ -117,7 +117,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
         ) : (
           <button
             onClick={() => setModal('signin')}
-            className="bg-white text-black px-4 py-2 rounded shadow"
+            className=" text-white px-4 py-2 rounded shadow cursor-cell"
           >
             Sign In / Sign Up
           </button>
