@@ -1,0 +1,8 @@
+export { default as Dashboard } from './Dashboard'
+export { default as Booking } from './Booking'
+export { default as Schedule } from './Schedule'
+export { default as BusManagement } from './BusManagement'
+export { default as CustomerManagement } from './CustomerManagement'
+export { default as Report } from './Report'
+export { default as Settings } from './Settings'
+export { default as HelpSupport } from './HelpSupport'
