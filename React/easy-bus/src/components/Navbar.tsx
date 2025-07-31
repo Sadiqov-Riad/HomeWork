@@ -5,21 +5,82 @@ import {
   FaBell,
   FaUserCircle,
   FaUserAlt,
+  FaMoon,
+  FaSun,
+  FaGlobe,
 } from 'react-icons/fa'
 import { MdLogout } from 'react-icons/md'
 import { IoMdSettings } from 'react-icons/io'
+import{ DropdownItem , NavbarProps} from '../types'
+import DropdownMenu from './DropDownMenu'
+import SignIn from './SignIn'
+import SignUp from './SignUp'
 
-type NavbarProps = {
-  toggleSidebar: () => void
-}
 
 const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
-  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false)
-  
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const handleMenuItemClick = (id: string) => {
+  if (id === 'logout') {
+    setIsAuthenticated(false)
+  }}
+  const [modal, setModal] = useState<'signin' | 'signup' | null>(null)
+  const profileMenuItems: DropdownItem[] = [
+    {
+      id: 'profile',
+      label: 'Profile',
+      icon: <FaUserAlt className="w-4 h-4" />,
+      href: '#'
+    },
+    {
+      id: 'settings',
+      label: 'Settings',
+      icon: <IoMdSettings className="w-5 h-5" />,
+      href: '#'
+    },
+    {
+      id: 'theme',
+      label: 'Theme',
+      icon: <FaSun className="w-4 h-4" />,
+      children: [
+        {
+          id: 'light-theme',
+          label: 'Light Theme',
+          icon: <FaSun className="w-4 h-4" />
+        },
+        {
+          id: 'dark-theme',
+          label: 'Dark Theme',
+          icon: <FaMoon className="w-4 h-4" />
+        }
+      ]
+    },
+    {
+      id: 'language',
+      label: 'Language',
+      icon: <FaGlobe className="w-4 h-4" />,
+      children: [
+        {
+          id: 'english',
+          label: 'English'
+        },
+        {
+          id: 'russian',
+          label: 'Russian'
+        }
+      ]
+    },
+    {
+      id: 'logout',
+      label: 'Log Out',
+      icon: <MdLogout className="w-5 h-5" />,
+      hasSeparator: true
+    }
+  ]
+
   return (
+  <>
     <nav className="bg-gray-800 px-4 py-3 flex justify-between w-full">
       <div className="flex items-center text-xl">
-        {/* FaBars отображается только на мобильных устройствах */}
         <FaBars
           className="text-white me-4 cursor-pointer md:hidden"
           onClick={toggleSidebar}
@@ -42,45 +103,50 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
         <div className="text-white">
           <FaBell className="w-6 h-6" />
         </div>
-        {/* Profile */}
-        <div className="relative">
+        {/* Profile or Auth */}
+        {isAuthenticated ? (
+          <DropdownMenu
+            trigger={
+              <button className="text-white">
+                <FaUserCircle className="w-6 h-6 mt-1" />
+              </button>
+            }
+            items={profileMenuItems}
+            onItemClick={handleMenuItemClick}
+          />
+        ) : (
           <button
-            className="text-white"
-            onClick={() => setIsProfileMenuOpen((prev) => !prev)}
+            onClick={() => setModal('signin')}
+            className="bg-white text-black px-4 py-2 rounded shadow"
           >
-            <FaUserCircle className="w-6 h-6 mt-1" />
+            Sign In / Sign Up
           </button>
-          {/* Dropdown */}
-          <div
-            className={`absolute right-0 mt-2 rounded shadow w-32 bg-white z-10 ${
-              isProfileMenuOpen ? 'block' : 'hidden'
-            }`}
-          >
-            <ul className="text-sm text-gray-800">
-              <li className="px-4 py-2 hover:bg-gray-100 rounded-tl rounded-tr cursor-pointer">
-                <a className="ml-0.5 pt-1" href="#">
-                  <FaUserAlt className="inline-block mr-2 mb-1 w-4 h-4" />
-                  Profile
-                </a>
-              </li>
-              <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                <a href="#">
-                  <IoMdSettings className="inline-block mr-2 mb-1 w-5 h-5" />
-                  Settings
-                </a>
-              </li>
-              <hr />
-              <li className="px-4 py-2 hover:bg-gray-100 rounded-bl rounded-br cursor-pointer">
-                <a className="ml-0.5" href="#">
-                  <MdLogout className="inline-block mb-1 mr-2 w-5 h-5" />
-                  Log Out
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
+        )}
       </div>
     </nav>
+
+    {modal === 'signin' && (
+      <SignIn
+        onClose={() => setModal(null)}
+        onSwitchToSignUp={() => setModal('signup')}
+        onAuthSuccess={() => {
+          setIsAuthenticated(true)
+          setModal(null)
+        }}
+      />
+    )}
+
+    {modal === 'signup' && (
+      <SignUp
+        onClose={() => setModal(null)}
+        onSwitchToSignIn={() => setModal('signin')}
+        onRegisterSuccess={() => {
+          setIsAuthenticated(true)
+          setModal(null)
+        }}
+      />
+    )}
+  </>
   )
 }
 

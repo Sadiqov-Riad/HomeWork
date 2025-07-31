@@ -3,11 +3,8 @@ import { IoTicket } from "react-icons/io5";
 import { RiCalendarScheduleFill } from "react-icons/ri";
 import { IoMdSettings, IoIosHelpCircle} from "react-icons/io";
 import { Link, useLocation } from "react-router-dom";
+import{ SidebarProps } from '../types'
 
-type SidebarProps = {
-  isOpen: boolean
-  onClose?: () => void
-}
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const location = useLocation()
@@ -53,33 +50,25 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           {menuItems.map((item) => {
             const IconComponent = item.icon
             return (
-              <li key={item.path} className='mb-2 rounded hover: hover:bg-blue-500 py-2'>
-                <Link 
-                  to={item.path} 
-                  className={`px-3 block  ${isActive(item.path) ? 'bg-blue-500 py-2 rounded '  : ''}`}
-                  onClick={() => window.innerWidth < 768 && onClose?.()}
-                >
-                  <IconComponent className='inline-block w-6 h-6 mr-2 -mt-2' />
-                  {item.label}
-                </Link>
-              </li>
-            )
+            <li key={item.path} className="mb-2 rounded py-1">
+              <Link to={item.path}
+              className={`px-3 block rounded py-2 ${isActive(item.path) ? 'bg-blue-500 text-white': 'hover:bg-blue-500 hover:text-white'}`} onClick={() => window.innerWidth < 768 && onClose?.()}>
+                <IconComponent className="inline-block w-6 h-6 mr-2 -mt-2" />
+                {item.label}
+              </Link>
+            </li>)
           })}
-          <hr className="text-white"/>
+          <hr className="text-white pb-4"/>
           {bottomMenuItems.map((item) => {
             const IconComponent = item.icon
             return (
-              <li key={item.path} className='mb-2 mt-3 rounded hover:shadow hover:bg-blue-500 py-2'>
-                <Link 
-                  to={item.path} 
-                  className={`px-3 block ${isActive(item.path) ? 'bg-blue-500 py-2 rounded ' : ''}`}
-                  onClick={() => window.innerWidth < 768 && onClose?.()}
-                >
-                  <IconComponent className='inline-block w-6 h-6 mr-2 -mt-2' />
-                  {item.label}
-                </Link>
-              </li>
-            )
+            <li key={item.path} className=" mb-2 rounded py-1">
+              <Link to={item.path}
+              className={`px-3 block rounded py-2 ${isActive(item.path) ? 'bg-blue-500 text-white': 'hover:bg-blue-500 hover:text-white'}`} onClick={() => window.innerWidth < 768 && onClose?.()}>
+                <IconComponent className="inline-block w-6 h-6 mr-2 -mt-2" />
+                {item.label}
+              </Link>
+            </li>)
           })}
         </ul>
       </div>
