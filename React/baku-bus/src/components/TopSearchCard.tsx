@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaWifi } from 'react-icons/fa'
 import { GiCharging, GiWaterBottle } from 'react-icons/gi'
 import { IoTv } from 'react-icons/io5'

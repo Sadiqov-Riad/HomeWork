@@ -47,7 +47,7 @@ const Search = () => {
           {/* Date and button section */}
           <div className='w-full lg:flex-1 sm:h-14 flex flex-col sm:flex-row items-center gap-3 sm:gap-5'>
             {/* Date */}
-            <div className='w-full sm:flex-1 h-full border border-neutral-300 bg-white/70 text-sm sm:text-base text-neutral-700 font-medium px-3 sm:px-5 flex items-center gap-x-1 rounded-lg'>
+            <div className='w-full sm:flex-1 h-full border border-neutral-300 bg-white/70 text-sm sm:text-base text-neutral-700 font-medium px-3 p-2 sm:px-5 flex items-center gap-x-1 rounded-lg'>
               <input
                 type="date"
                 className='flex-1 h-full border-none bg-transparent focus:outline-none text-sm sm:text-base'
@@ -55,7 +55,7 @@ const Search = () => {
             </div>
            
             {/* Search button */}
-            <button className="w-full sm:w-fit h-full px-4 sm:px-5 bg-red-500 hover:bg-transparent border-2 border-red-500 hover:border-red-500 rounded-xl text-sm sm:text-base font-medium text-neutral-50 flex items-center justify-center gap-x-2 hover:text-red-500 ease-in-out duration-300">
+            <button className="w-full sm:w-fit h-full px-4 p-2 sm:px-5 bg-red-500 hover:bg-transparent border-2 border-red-500 hover:border-red-500 rounded-xl text-sm sm:text-base font-medium text-neutral-50 flex items-center justify-center gap-x-2 hover:text-red-500 ease-in-out duration-300">
               <FaSearch className="w-4 h-4 sm:w-5 sm:h-5" />
               <span>Search</span>
             </button>
