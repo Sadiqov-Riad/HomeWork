@@ -1,7 +1,11 @@
 import { easeOut, motion } from 'framer-motion'
 import { FaMapMarkerAlt, FaSearch } from 'react-icons/fa'
 import { TbArrowsExchange } from 'react-icons/tb'
+import { useTranslation } from 'react-i18next';
+
 const Search = () => {
+  const { t } = useTranslation();
+
   return (
     <div className='w-full'>
       <motion.div
@@ -18,7 +22,7 @@ const Search = () => {
             <div className='w-full sm:w-1/2 h-12 sm:h-14 border border-neutral-300 bg-white/70 text-sm sm:text-base text-neutral-700 font-medium px-3 sm:px-5 flex items-center gap-x-1 rounded-lg'>
               <input
                 type="text"
-                placeholder='From...'
+                placeholder={t('search.from')}
                 className='flex-1 h-full border-none bg-transparent focus:outline-none text-sm sm:text-base'
               />
               <div className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-400">
@@ -30,7 +34,7 @@ const Search = () => {
             <div className='w-full sm:w-1/2 h-12 sm:h-14 border border-neutral-300 bg-white/70 text-sm sm:text-base text-neutral-700 font-medium px-3 sm:px-5 flex items-center gap-x-1 rounded-lg'>
               <input
                 type="text"
-                placeholder='To...'
+                placeholder={t('search.to')}
                 className='flex-1 h-full border-none bg-transparent focus:outline-none text-sm sm:text-base'
               />
               <div className="w-4 h-4 sm:w-5 sm:h-5 text-neutral-400">
@@ -57,7 +61,7 @@ const Search = () => {
             {/* Search button */}
             <button className="w-full sm:w-fit h-full px-4 p-2 sm:px-5 bg-red-500 hover:bg-transparent border-2 border-red-500 hover:border-red-500 rounded-xl text-sm sm:text-base font-medium text-neutral-50 flex items-center justify-center gap-x-2 hover:text-red-500 ease-in-out duration-300">
               <FaSearch className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>Search</span>
+              <span>{t('search.search')}</span>
             </button>
           </div>
         </div>

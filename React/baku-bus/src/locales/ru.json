@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "Главная",
+    "about": "О нас",
+    "tickets": "Билеты",
+    "services": "Услуги",
+    "signIn": "Войти"
+  },
+  "hero": {
+    "subtitle": "Получите билеты на автобус",
+    "title": "Найдите лучший автобус для вас!"
+  },
+  "search": {
+    "from": "Откуда...",
+    "to": "Куда...",
+    "search": "Поиск"
+  },
+  "auth": {
+    "welcomeBack": "Добро пожаловать",
+    "signInToAccount": "Войдите в свой аккаунт",
+    "createAccount": "Создать аккаунт",
+    "joinUsToday": "Присоединяйтесь к нам сегодня",
+    "continueWithGoogle": "Продолжить с Google",
+    "continueWithApple": "Продолжить с Apple",
+    "or": "или",
+    "email": "Email",
+    "enterEmail": "Введите ваш email",
+    "password": "Пароль",
+    "enterPassword": "Введите ваш пароль",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "first_name": "Имя",
+    "last_name": "Фамилия",
+    "confirmPassword": "Подтвердите пароль",
+    "createPassword": "Создайте пароль",
+    "confirm_password": "Подтвердите пароль",
+    "rememberMe": "Запомнить меня",
+    "forgotPassword": "Забыли пароль?",
+    "signIn": "Войти",
+    "signUp": "Зарегистрироваться",
+    "dontHaveAccount": "Нет аккаунта?",
+    "alreadyHaveAccount": "Уже есть аккаунт?",
+    "termsOfService": "Условия использования",
+    "privacyPolicy": "Политика конфиденциальности",
+    "agreeToTerms": "Я согласен с",
+    "and": "и"
+  },
+  "footer": {
+    "description": "Baku Bus - это платформа для онлайн-бронирования билетов, которая делает путешествия комфортными для пассажиров. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, eius. Tempora repellendus eveniet, qui sit rerum aperiam similique autem cupiditate atque iusto, tenetur cumque itaque!",
+    "quickLinks": "Быстрые ссылки",
+    "aboutUs": "О нас",
+    "myAccount": "Мой аккаунт",
+    "reserveTicket": "Забронировать билет",
+    "createAccount": "Создать аккаунт",
+    "topRoutes": "Популярные маршруты",
+    "bakuSumqayit": "Баку - Сумгаит",
+    "ganjaMingachevir": "Гянджа - Мингечаур",
+    "bakuGanja": "Баку - Гянджа",
+    "ganjaSumqayit": "Гянджа - Сумгаит",
+    "supportLinks": "Поддержка",
+    "privacyPolicy": "Политика конфиденциальности",
+    "termsConditions": "Условия использования",
+    "helpSupport": "Помощь и поддержка",
+    "faqs": "Часто задаваемые вопросы",
+    "copyright": "Авторские права © 2025. Все права защищены."
+  },
+  "services": {
+    "title": "Наши услуги",
+    "securePayment": {
+      "title": "Безопасная оплата",
+      "description": "Интеграция безопасных платежных шлюзов для оплаты билетов пользователями."
+    },
+    "refundPolicy": {
+      "title": "Политика возврата",
+      "description": "Предоставление возможности покупки возвратных билетов с четкими условиями."
+    },
+    "support": {
+      "title": "Поддержка 24/7",
+      "description": "Получите помощь в любое время через чат, email или телефон."
+    }
+  },
+  "pages": {
+    "about": "Страница о нас",
+    "tickets": "Страница билетов",
+    "services": "Страница услуг"
+  },
+  "topSearch": {
+    "title": "Популярные маршруты",
+    "from": "Откуда",
+    "to": "Куда",
+    "facilities": {
+      "internet": "Интернет",
+      "snacks": "Закуски",
+      "tv": "ТВ",
+      "mobileCharging": "Зарядка телефона"
+    },
+    "reserveSeat": "Забронировать место"
+  }
+} 

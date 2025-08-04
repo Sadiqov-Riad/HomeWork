@@ -1,12 +1,15 @@
 import RootLayout from '../layout/RootLayout'
 import TopSearchCard from './TopSearchCard'
+import { useTranslation } from 'react-i18next';
 
 const TopSearch = () => {
+  const { t } = useTranslation();
+
   return (
     <RootLayout className='space-y-8 sm:space-y-12'>
         <div className="w-full items-center justify-center text-center">
             <h1 className="text-2xl sm:text-3xl text-neutral-800 font-bold">
-                Top Search <span className="text-red-500">Routes</span>
+                {t('topSearch.title')}
             </h1>
         </div>
         

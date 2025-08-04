@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "tickets": "Tickets",
+    "services": "Services",
+    "signIn": "Sign in"
+  },
+  "hero": {
+    "subtitle": "Get your bus tickets",
+    "title": "Find best Bus for you!"
+  },
+  "search": {
+    "from": "From...",
+    "to": "To...",
+    "search": "Search"
+  },
+  "auth": {
+    "welcomeBack": "Welcome Back",
+    "signInToAccount": "Sign in to your account",
+    "createAccount": "Create Account",
+    "joinUsToday": "Join us today",
+    "continueWithGoogle": "Continue with Google",
+    "continueWithApple": "Continue with Apple",
+    "or": "or",
+    "email": "Email",
+    "enterEmail": "Enter your email",
+    "password": "Password",
+    "enterPassword": "Enter your password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "first_name": "First name",
+    "last_name": "Last name",
+    "confirmPassword": "Confirm Password",
+    "createPassword": "Create password",
+    "confirm_password": "Confirm password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign In",
+    "signUp": "Sign up",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "agreeToTerms": "I agree to the",
+    "and": "and"
+  },
+  "footer": {
+    "description": "Baku Bus is all about booking tickets through online platform to make comfortable to the passengers. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, eius. Tempora repellendus eveniet, qui sit rerum aperiam similique autem cupiditate atque iusto, tenetur cumque itaque!",
+    "quickLinks": "Quick Links",
+    "aboutUs": "About us",
+    "myAccount": "My Account",
+    "reserveTicket": "Reserve your ticket",
+    "createAccount": "Create your account",
+    "topRoutes": "Top Reserved Routes",
+    "bakuSumqayit": "Baku - Sumqayit",
+    "ganjaMingachevir": "Ganja - Mingachevir",
+    "bakuGanja": "Baku - Ganja",
+    "ganjaSumqayit": "Ganja - Sumqayit",
+    "supportLinks": "Support Links",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "helpSupport": "Help & Support",
+    "faqs": "FAQs",
+    "copyright": "Copyright © 2025. All rights reserved."
+  },
+  "services": {
+    "title": "Our Services",
+    "securePayment": {
+      "title": "Secure Payment",
+      "description": "Integrate secure payment gateways for users to pay for their tickets."
+    },
+    "refundPolicy": {
+      "title": "Refund Policy",
+      "description": "Offer options for the users to purchase refundable tickets with clear terms."
+    },
+    "support": {
+      "title": "24/7 Support",
+      "description": "Get assistance anytime through chat, email, or phone."
+    }
+  },
+  "pages": {
+    "about": "About Page",
+    "tickets": "Tickets Page",
+    "services": "Services Page"
+  },
+  "topSearch": {
+    "title": "Top Search Routes",
+    "from": "From",
+    "to": "To",
+    "facilities": {
+      "internet": "Internet",
+      "snacks": "Snacks",
+      "tv": "TV",
+      "mobileCharging": "Mobile Charging"
+    },
+    "reserveSeat": "Reserve Seat"
+  }
+} 

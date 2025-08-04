@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "Ana səhifə",
+    "about": "Haqqımızda",
+    "tickets": "Biletlər",
+    "services": "Xidmətlər",
+    "signIn": "Daxil ol"
+  },
+  "hero": {
+    "subtitle": "Avtobus biletlərinizi əldə edin",
+    "title": "Sizin üçün ən yaxşı avtobusu tapın!"
+  },
+  "search": {
+    "from": "Haradan...",
+    "to": "Haraya...",
+    "search": "Axtar"
+  },
+  "auth": {
+    "welcomeBack": "Xoş gəlmisiniz",
+    "signInToAccount": "Hesabınıza daxil olun",
+    "createAccount": "Hesab yaradın",
+    "joinUsToday": "Bu gün bizə qoşulun",
+    "continueWithGoogle": "Google ilə davam edin",
+    "continueWithApple": "Apple ilə davam edin",
+    "or": "və ya",
+    "email": "Email",
+    "enterEmail": "Email ünvanınızı daxil edin",
+    "password": "Şifrə",
+    "enterPassword": "Şifrənizi daxil edin",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "first_name": "Ad",
+    "last_name": "Soyad",
+    "confirmPassword": "Şifrəni təsdiqləyin",
+    "createPassword": "Şifrə yaradın",
+    "confirm_password": "Şifrəni təsdiqləyin",
+    "rememberMe": "Məni xatırla",
+    "forgotPassword": "Şifrəni unutmusunuz?",
+    "signIn": "Daxil ol",
+    "signUp": "Qeydiyyatdan keç",
+    "dontHaveAccount": "Hesabınız yoxdur?",
+    "alreadyHaveAccount": "Artıq hesabınız var?",
+    "termsOfService": "İstifadə şərtləri",
+    "privacyPolicy": "Gizlilik siyasəti",
+    "agreeToTerms": "Mən razıyam",
+    "and": "və"
+  },
+  "footer": {
+    "description": "Baku Bus sərnişinlər üçün rahat səyahət təmin etmək üçün online platforma vasitəsilə bilet bron etməkdir. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, eius. Tempora repellendus eveniet, qui sit rerum aperiam similique autem cupiditate atque iusto, tenetur cumque itaque!",
+    "quickLinks": "Sürətli linklər",
+    "aboutUs": "Haqqımızda",
+    "myAccount": "Mənim hesabım",
+    "reserveTicket": "Biletinizi bron edin",
+    "createAccount": "Hesab yaradın",
+    "topRoutes": "Ən populyar marşrutlar",
+    "bakuSumqayit": "Bakı - Sumqayıt",
+    "ganjaMingachevir": "Gəncə - Mingəçevir",
+    "bakuGanja": "Bakı - Gəncə",
+    "ganjaSumqayit": "Gəncə - Sumqayıt",
+    "supportLinks": "Dəstək",
+    "privacyPolicy": "Gizlilik siyasəti",
+    "termsConditions": "Şərtlər və tələblər",
+    "helpSupport": "Kömək və dəstək",
+    "faqs": "Tez-tez verilən suallar",
+    "copyright": "Müəllif hüquqları © 2025. Bütün hüquqlar qorunur."
+  },
+  "services": {
+    "title": "Xidmətlərimiz",
+    "securePayment": {
+      "title": "Təhlükəsiz ödəniş",
+      "description": "İstifadəçilərin biletlərini ödəmələri üçün təhlükəsiz ödəniş şlüzlərinin inteqrasiyası."
+    },
+    "refundPolicy": {
+      "title": "Geri qaytarma siyasəti",
+      "description": "İstifadəçilərə aydın şərtlərlə geri qaytarılan biletlər almaq imkanı təqdim edin."
+    },
+    "support": {
+      "title": "24/7 Dəstək",
+      "description": "Çat, email və ya telefon vasitəsilə istənilən vaxt kömək alın."
+    }
+  },
+  "pages": {
+    "about": "Haqqımızda səhifəsi",
+    "tickets": "Biletlər səhifəsi",
+    "services": "Xidmətlər səhifəsi"
+  },
+  "topSearch": {
+    "title": "Ən populyar marşrutlar",
+    "from": "Haradan",
+    "to": "Haraya",
+    "facilities": {
+      "internet": "İnternet",
+      "snacks": "Qəlyanaltı",
+      "tv": "TV",
+      "mobileCharging": "Telefon şarjı"
+    },
+    "reserveSeat": "Yer bron et"
+  }
+} 

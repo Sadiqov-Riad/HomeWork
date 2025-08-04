@@ -1,8 +1,10 @@
 import { easeOut, motion } from 'framer-motion'
 import RootLayout from '../../layout/RootLayout';
 import Search from '../../components/Search';
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+    const { t } = useTranslation();
 
     const variants = {
         hidden: { opacity: 0, y: -800},
@@ -29,7 +31,7 @@ const Hero = () => {
                 transition={{duration: 1.5, ease: easeOut}}
                 className='text-lg text-neutral-500 font-medium '
             >
-                    Get your bus tickets
+                    {t('hero.subtitle')}
             </motion.p>
 
             <motion.h1
@@ -39,7 +41,7 @@ const Hero = () => {
                 transition={{duration: 1.35, ease: easeOut}}
                 className='text-5xl text-neutral-800 font-bold capitalize'
             >
-                Find best Bus for you!
+                {t('hero.title')}
             </motion.h1>
         </div>
 

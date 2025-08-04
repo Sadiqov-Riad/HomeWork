@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaTimes, FaGoogle, FaApple, FaEye, FaEyeSlash } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 
 interface SignInProps {
   isOpen: boolean;
@@ -8,6 +9,7 @@ interface SignInProps {
 }
 
 const SignIn: React.FC<SignInProps> = ({ isOpen, onClose, onSwitchToSignUp }) => {
+  const { t } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -43,19 +45,19 @@ const SignIn: React.FC<SignInProps> = ({ isOpen, onClose, onSwitchToSignUp }) =>
         {/* Modal Content */}
         <div className="p-8">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">Welcome Back</h2>
-            <p className="text-gray-600">Sign in to your account</p>
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">{t('auth.welcomeBack')}</h2>
+            <p className="text-gray-600">{t('auth.signInToAccount')}</p>
           </div>
 
           {/* Social Login Buttons */}
           <div className="space-y-3 mb-6">
             <button className="w-full flex items-center justify-center gap-3 py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors">
               <FaGoogle className="w-5 h-5 text-red-500" />
-              <span className="font-medium text-gray-700">Continue with Google</span>
+              <span className="font-medium text-gray-700">{t('auth.continueWithGoogle')}</span>
             </button>
             <button className="w-full flex items-center justify-center gap-3 py-3 px-4 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors">
               <FaApple className="w-5 h-5 text-gray-800" />
-              <span className="font-medium text-gray-700">Continue with Apple</span>
+              <span className="font-medium text-gray-700">{t('auth.continueWithApple')}</span>
             </button>
           </div>
 
@@ -65,7 +67,7 @@ const SignIn: React.FC<SignInProps> = ({ isOpen, onClose, onSwitchToSignUp }) =>
               <div className="w-full border-t border-gray-300"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">or</span>
+              <span className="px-2 bg-white text-gray-500">{t('auth.or')}</span>
             </div>
           </div>
 
@@ -73,7 +75,7 @@ const SignIn: React.FC<SignInProps> = ({ isOpen, onClose, onSwitchToSignUp }) =>
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email
+                {t('auth.email')}
               </label>
               <input
                 type="email"
@@ -82,14 +84,14 @@ const SignIn: React.FC<SignInProps> = ({ isOpen, onClose, onSwitchToSignUp }) =>
                 value={formData.email}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all"
-                placeholder="Enter your email"
+                placeholder={t('auth.enterEmail')}
                 required
               />
             </div>
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                Password
+                {t('auth.password')}
               </label>
               <div className="relative">
                 <input
@@ -99,7 +101,7 @@ const SignIn: React.FC<SignInProps> = ({ isOpen, onClose, onSwitchToSignUp }) =>
                   value={formData.password}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-xl focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition-all"
-                  placeholder="Enter your password"
+                  placeholder={t('auth.enterPassword')}
                   required
                 />
                 <button
@@ -115,10 +117,10 @@ const SignIn: React.FC<SignInProps> = ({ isOpen, onClose, onSwitchToSignUp }) =>
             <div className="flex items-center justify-between">
               <label className="flex items-center">
                 <input type="checkbox" className="rounded border-gray-300 text-red-500 focus:ring-red-500" />
-                <span className="ml-2 text-sm text-gray-600">Remember me</span>
+                <span className="ml-2 text-sm text-gray-600">{t('auth.rememberMe')}</span>
               </label>
               <button type="button" className="text-sm text-red-500 hover:text-red-600">
-                Forgot password?
+                {t('auth.forgotPassword')}
               </button>
             </div>
 
@@ -126,19 +128,19 @@ const SignIn: React.FC<SignInProps> = ({ isOpen, onClose, onSwitchToSignUp }) =>
               type="submit"
               className="w-full bg-red-500 hover:bg-red-600 text-white font-medium py-3 px-4 rounded-xl transition-colors"
             >
-              Sign In
+              {t('auth.signIn')}
             </button>
           </form>
 
           {/* Switch to Sign Up */}
           <div className="text-center mt-6">
             <p className="text-gray-600">
-              Don't have an account?{' '}
+              {t('auth.dontHaveAccount')}{' '}
               <button
                 onClick={onSwitchToSignUp}
                 className="text-red-500 hover:text-red-600 font-medium"
               >
-                Sign up
+                {t('auth.signUp')}
               </button>
             </p>
           </div>

@@ -1,6 +1,7 @@
 import { FaWifi } from 'react-icons/fa'
 import { GiCharging, GiWaterBottle } from 'react-icons/gi'
 import { IoTv } from 'react-icons/io5'
+import { useTranslation } from 'react-i18next';
 
 type TopSearchCardProps = {
   routeFrom: string
@@ -10,6 +11,7 @@ type TopSearchCardProps = {
 }
 
 const TopSearchCard = ({ routeFrom, routeTo, timeDuration, price }: TopSearchCardProps) => {
+  const { t } = useTranslation();
   return (
     <div className='w-full rounded-xl p-4 sm:p-5 border-2 border-neutral-300 space-y-6 sm:space-y-8 lg:space-y-10'>
        
@@ -17,8 +19,8 @@ const TopSearchCard = ({ routeFrom, routeTo, timeDuration, price }: TopSearchCar
             {/* Routes */}
             <div className="space-y-2 sm:space-y-0">
                 <div className="w-full flex items-center justify-between">
-                    <p className="text-xs text-neutral-400 font-normal">From</p>
-                    <p className="text-xs text-neutral-400 font-normal">To</p>
+                    <p className="text-xs text-neutral-400 font-normal">{t('topSearch.from')}</p>
+                    <p className="text-xs text-neutral-400 font-normal">{t('topSearch.to')}</p>
                 </div>
                 <div className="w-full flex items-center justify-between gap-x-2 sm:gap-x-3">
                     {/* From */}
@@ -45,25 +47,25 @@ const TopSearchCard = ({ routeFrom, routeTo, timeDuration, price }: TopSearchCar
                     <div className="flex items-center gap-x-1">
                         <FaWifi className='w-3 h-3 text-neutral-500' />
                         <p className='text-xs text-neutral-600 font-normal'>
-                            Internet
+                            {t('topSearch.facilities.internet')}
                         </p>
                     </div>
                     <div className="flex items-center gap-x-1">
                         <GiWaterBottle className='w-3 h-3 text-neutral-500' />
                         <p className='text-xs text-neutral-600 font-normal'>
-                            Snacks
+                            {t('topSearch.facilities.snacks')}
                         </p>
                     </div>
                     <div className="flex items-center gap-x-1">
                         <IoTv className='w-3 h-3 text-neutral-500' />
                         <p className='text-xs text-neutral-600 font-normal'>
-                            TV
+                            {t('topSearch.facilities.tv')}
                         </p>
                     </div>
                     <div className="flex items-center gap-x-1">
                         <GiCharging className='w-3 h-3 text-neutral-500' />
                         <p className='text-xs text-neutral-600 font-normal'>
-                            Mobile Charging
+                            {t('topSearch.facilities.mobileCharging')}
                         </p>
                     </div>
                 </div>
@@ -73,25 +75,25 @@ const TopSearchCard = ({ routeFrom, routeTo, timeDuration, price }: TopSearchCar
                     <div className="flex items-center gap-x-1">
                         <FaWifi className='w-3 h-3 text-neutral-500' />
                         <p className='text-xs text-neutral-600 font-normal'>
-                            Internet
+                            {t('topSearch.facilities.internet')}
                         </p>
                     </div>
                     <div className="flex items-center gap-x-1">
                         <GiWaterBottle className='w-3 h-3 text-neutral-500' />
                         <p className='text-xs text-neutral-600 font-normal'>
-                            Snacks
+                            {t('topSearch.facilities.snacks')}
                         </p>
                     </div>
                     <div className="flex items-center gap-x-1">
                         <IoTv className='w-3 h-3 text-neutral-500' />
                         <p className='text-xs text-neutral-600 font-normal'>
-                            TV
+                            {t('topSearch.facilities.tv')}
                         </p>
                     </div>
                     <div className="flex items-center gap-x-1">
                         <GiCharging className='w-3 h-3 text-neutral-500' />
                         <p className='text-xs text-neutral-600 font-normal'>
-                            Mobile Charging
+                            {t('topSearch.facilities.mobileCharging')}
                         </p>
                     </div>
                 </div>
@@ -104,7 +106,7 @@ const TopSearchCard = ({ routeFrom, routeTo, timeDuration, price }: TopSearchCar
                 {price}
             </h1>
             <button className="w-full sm:w-auto py-2 sm:py-1.5 px-4 sm:px-5 bg-red-500 hover:bg-transparent border-2 border-red-500 hover:border-red-500 rounded-xl text-sm font-normal text-neutral-50 flex items-center justify-center gap-x-2 hover:text-red-500 transition-all ease-in-out duration-300">
-              <span>Reserve Seat</span>
+              <span>{t('topSearch.reserveSeat')}</span>
             </button>
         </div>
     </div>

@@ -2,11 +2,14 @@ import { Link } from 'react-router-dom'
 import RootLayout from '../../layout/RootLayout'
 import { FaInstagram, FaXTwitter } from 'react-icons/fa6'
 import { FaFacebook, FaYoutube } from 'react-icons/fa'
+import { useTranslation } from 'react-i18next';
 import MasterCardImg from '../../assets/mastercard.png'
 import CreditCardImg from '../../assets/creditcard.png'
 import PaypalImg from '../../assets/paypal.png'
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <div className='w-full h-auto bg-neutral-950 py-8 sm:py-12'>
       
@@ -25,7 +28,7 @@ const Footer = () => {
 
                     {/* Description */}
                     <p className='pt-4 text-sm text-neutral-500 font-normal leading-relaxed xl:pr-10'>
-                        Baku Bus is all about booking tickets through online platform to make comfortable to the passengers. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, eius. Tempora repellendus eveniet, qui sit rerum aperiam similique autem cupiditate atque iusto, tenetur cumque itaque!
+                        {t('footer.description')}
                     </p>
 
                     {/* Social links */}
@@ -52,24 +55,24 @@ const Footer = () => {
             {/* Quick Links */}
             <div className="col-span-1 space-y-4 sm:space-y-5">
                 <h1 className="text-base sm:text-lg text-neutral-100 font-semibold">
-                    Quick Links
+                    {t('footer.quickLinks')}
                 </h1>
 
                 <div className="space-y-2">
                     <Link to="/" className='block text-sm sm:text-base text-neutral-500 hover:text-neutral-300 font-normal transition-colors ease-in-out duration-300'>
-                        About us
+                        {t('footer.aboutUs')}
                     </Link>
 
                     <Link to="/" className='block text-sm sm:text-base text-neutral-500 hover:text-neutral-300 font-normal transition-colors ease-in-out duration-300'>
-                        My Account 
+                        {t('footer.myAccount')}
                     </Link>
 
                     <Link to="/" className='block text-sm sm:text-base text-neutral-500 hover:text-neutral-300 font-normal transition-colors ease-in-out duration-300'>
-                        Reserve your ticket
+                        {t('footer.reserveTicket')}
                     </Link>              
 
                     <Link to="/" className='block text-sm sm:text-base text-neutral-500 hover:text-neutral-300 font-normal transition-colors ease-in-out duration-300'>
-                        Create your account
+                        {t('footer.createAccount')}
                     </Link>
                 </div>
             </div>
@@ -77,24 +80,24 @@ const Footer = () => {
             {/* Top Routes */}
             <div className="col-span-1 space-y-4 sm:space-y-5">
                 <h1 className="text-base sm:text-lg text-neutral-100 font-semibold">
-                    Top Reserved Routes 
+                    {t('footer.topRoutes')}
                 </h1>
 
                 <div className="space-y-2">
                     <Link to="/" className='block text-sm sm:text-base text-neutral-500 hover:text-neutral-300 font-normal transition-colors ease-in-out duration-300'>
-                        Baku - Sumqayit
+                        {t('footer.bakuSumqayit')}
                     </Link>
 
                     <Link to="/" className='block text-sm sm:text-base text-neutral-500 hover:text-neutral-300 font-normal transition-colors ease-in-out duration-300'>
-                        Ganja - Mingachevir 
+                        {t('footer.ganjaMingachevir')}
                     </Link>
 
                     <Link to="/" className='block text-sm sm:text-base text-neutral-500 hover:text-neutral-300 font-normal transition-colors ease-in-out duration-300'>
-                        Baku - Ganja
+                        {t('footer.bakuGanja')}
                     </Link>              
 
                     <Link to="/" className='block text-sm sm:text-base text-neutral-500 hover:text-neutral-300 font-normal transition-colors ease-in-out duration-300'>
-                        Ganja - Sumqayit
+                        {t('footer.ganjaSumqayit')}
                     </Link>
                 </div>
             </div>
@@ -102,24 +105,24 @@ const Footer = () => {
             {/* Support Links */}
             <div className="col-span-1 space-y-4 sm:space-y-5">
                 <h1 className="text-base sm:text-lg text-neutral-100 font-semibold">
-                    Support Links  
+                    {t('footer.supportLinks')}
                 </h1>
 
                 <div className="space-y-2">
                     <Link to="/" className='block text-sm sm:text-base text-neutral-500 hover:text-neutral-300 font-normal transition-colors ease-in-out duration-300'>
-                        Privacy Policy
+                        {t('footer.privacyPolicy')}
                     </Link>
 
                     <Link to="/" className='block text-sm sm:text-base text-neutral-500 hover:text-neutral-300 font-normal transition-colors ease-in-out duration-300'>
-                        Terms & Conditions 
+                        {t('footer.termsConditions')}
                     </Link>
 
                     <Link to="/" className='block text-sm sm:text-base text-neutral-500 hover:text-neutral-300 font-normal transition-colors ease-in-out duration-300'>
-                        Help & Support
+                        {t('footer.helpSupport')}
                     </Link>              
 
                     <Link to="/" className='block text-sm sm:text-base text-neutral-500 hover:text-neutral-300 font-normal transition-colors ease-in-out duration-300'>
-                        FAQs
+                        {t('footer.faqs')}
                     </Link>
                 </div>
             </div>
@@ -132,7 +135,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0">
             <p className="text-xs sm:text-sm text-neutral-600 font-normal">
-                Copyright &copy; 2025. All rights reserved.
+                {t('footer.copyright')}
             </p>
 
             <div className="flex items-center gap-x-2">

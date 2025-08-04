@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
 
 const Navbar: React.FC = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSignInOpen, setIsSignInOpen] = useState(false);
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
@@ -54,27 +57,33 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-16">
+          <div className="hidden md:flex items-center gap-8">
             <ul className="flex items-center gap-8 text-lg font-medium">
               <li>
-                <Link to="/" className="hover:text-red-500 transition-colors duration-200">Home</Link>
+                <Link to="/" className="hover:text-red-500 transition-colors duration-200">{t('nav.home')}</Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-red-500 transition-colors duration-200">About</Link>
+                <Link to="/about" className="hover:text-red-500 transition-colors duration-200">{t('nav.about')}</Link>
               </li>
               <li>
-                <Link to="/tickets" className="hover:text-red-500 transition-colors duration-200">Tickets</Link>
+                <Link to="/tickets" className="hover:text-red-500 transition-colors duration-200">{t('nav.tickets')}</Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-red-500 transition-colors duration-200">Services</Link>
+                <Link to="/services" className="hover:text-red-500 transition-colors duration-200">{t('nav.services')}</Link>
               </li>
             </ul>
-            <button 
-              onClick={openSignIn}
-              className="bg-red-500 hover:bg-transparent hover:text-red-500 border border-red-500 text-white px-4 py-2 rounded-full transition-colors duration-200"
-            >
-              Sign in
-            </button>
+            
+            {/* Language Switcher */}
+            <div className="flex items-center gap-4">
+              <LanguageSwitcher />
+              
+              <button 
+                onClick={openSignIn}
+                className="bg-red-500 hover:bg-transparent hover:text-red-500 border border-red-500 text-white px-4 py-2 rounded-full transition-colors duration-200"
+              >
+                {t('nav.signIn')}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu Overlay */}
@@ -83,17 +92,23 @@ const Navbar: React.FC = () => {
               isMenuOpen ? 'translate-x-0' : '-translate-x-full'
             }`}
           >
-            <div className="flex flex-col items-center justify-center h-full gap-10 text-xl font-medium">
-              <Link to="/" onClick={closeMenu} className="hover:text-red-500">Home</Link>
-              <Link to="/about" onClick={closeMenu} className="hover:text-red-500">About</Link>
-              <Link to="/tickets" onClick={closeMenu} className="hover:text-red-500">Tickets</Link>
-              <Link to="/services" onClick={closeMenu} className="hover:text-red-500">Services</Link>
-              <button
-                onClick={openSignIn}
-                className="bg-red-500 hover:bg-transparent hover:text-red-500 border border-red-500 text-white px-6 py-2 rounded-xl transition-colors duration-200"
-              >
-                Sign in
-              </button>
+            <div className="flex flex-col items-center justify-center h-full gap-8 text-xl font-medium">
+              <Link to="/" onClick={closeMenu} className="hover:text-red-500 transition-colors duration-200">{t('nav.home')}</Link>
+              <Link to="/about" onClick={closeMenu} className="hover:text-red-500 transition-colors duration-200">{t('nav.about')}</Link>
+              <Link to="/tickets" onClick={closeMenu} className="hover:text-red-500 transition-colors duration-200">{t('nav.tickets')}</Link>
+              <Link to="/services" onClick={closeMenu} className="hover:text-red-500 transition-colors duration-200">{t('nav.services')}</Link>
+              
+              {/* Language Switcher for Mobile */}
+              <div className="flex flex-col items-center gap-4">
+                <LanguageSwitcher />
+                
+                <button
+                  onClick={openSignIn}
+                  className="bg-red-500 hover:bg-transparent hover:text-red-500 border border-red-500 text-white px-6 py-2 rounded-xl transition-colors duration-200"
+                >
+                  {t('nav.signIn')}
+                </button>
+              </div>
             </div>
           </div>
         </div>

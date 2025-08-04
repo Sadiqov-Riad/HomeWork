@@ -1,8 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './i18n'; // Инициализация i18next
 import Navbar from './components/Navbar'; 
 import Home  from './pages/Home/Home';
 import Footer from './pages/Home/Footer';
+import Services from './pages/Services';
 
 const App: React.FC = () => {
   return (
@@ -15,7 +17,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<div>About Page</div>} />
             <Route path="/tickets" element={<div>Tickets Page</div>} />
-            <Route path="/services" element={<div>Services Page</div>} />
+            <Route path="/services" element={<Services />} />
           </Routes>
         </div>
 
