@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+*{
+    font-family: "Inter", sans-serif;
+}
