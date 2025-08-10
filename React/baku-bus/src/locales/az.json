@@ -65,7 +65,8 @@
     "copyright": "Müəllif hüquqları © 2025. Bütün hüquqlar qorunur."
   },
   "services": {
-    "title": "Xidmətlərimiz",
+    "title1": "Bizim",
+    "title2": "Xidmətlərimiz",
     "securePayment": {
       "title": "Təhlükəsiz ödəniş",
       "description": "İstifadəçilərin biletlərini ödəmələri üçün təhlükəsiz ödəniş şlüzlərinin inteqrasiyası."
@@ -85,7 +86,8 @@
     "services": "Xidmətlər səhifəsi"
   },
   "topSearch": {
-    "title": "Ən populyar marşrutlar",
+    "title1": "Ən populyar",
+    "title2": "marşrutlar",
     "from": "Haradan",
     "to": "Haraya",
     "facilities": {

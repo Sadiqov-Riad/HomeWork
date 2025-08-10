@@ -19,10 +19,10 @@ const LanguageSwitcher: React.FC = () => {
       <select
         value={i18n.language}
         onChange={(e) => handleLanguageChange(e.target.value)}
-        className="appearance-none bg-transparent border border-neutral-300 rounded-full px-3 py-1.5 pr-6 text-xs font-medium text-neutral-700 cursor-pointer hover:border-red-500 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 ease-in-out backdrop-blur bg-white/30 w-20 hover:scale-105 hover:shadow-lg transform"
+        className="appearance-none  border border-neutral-300 rounded-full px-3 py-1.5 pr-6 text-xs font-medium text-neutral-700 cursor-pointer  hover:text-red-500 focus:outline-none focus:ring-2  focus:border-transparent transition-all duration-300 ease-in-out backdrop-blur bg-white/30 w-20 hover:scale-105 hover:shadow-lg transform"
       >
         {languages.map((lang) => (
-          <option key={lang.code} value={lang.code} className="bg-white text-neutral-700">
+          <option key={lang.code} value={lang.code} className="bg-white text-neutral-700 cursor-pointer">
             {lang.flag} {lang.name}
           </option>
         ))}

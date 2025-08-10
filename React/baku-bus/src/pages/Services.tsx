@@ -11,7 +11,7 @@ const Services = () => {
     <RootLayout>
       <section className="py-12 px-4">
         <h1 className="text-3xl md:text-4xl font-bold text-center text-neutral-800 mb-10">
-          {t('services.title')} <span className='text-red-500'>{t('services.title')}</span>
+          {t('services.title1')} <span className='text-red-500'>{t('services.title2')}</span>
         </h1>
 
         <div className="flex flex-wrap gap-6 justify-center">

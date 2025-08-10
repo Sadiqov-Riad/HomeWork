@@ -9,7 +9,7 @@ const TopSearch = () => {
     <RootLayout className='space-y-8 sm:space-y-12'>
         <div className="w-full items-center justify-center text-center">
             <h1 className="text-2xl sm:text-3xl text-neutral-800 font-bold">
-                {t('topSearch.title')}
+                {t('topSearch.title1')} <span className='text-red-500'>{t('topSearch.title2')}</span>
             </h1>
         </div>
         

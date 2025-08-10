@@ -65,7 +65,8 @@
     "copyright": "Copyright © 2025. All rights reserved."
   },
   "services": {
-    "title": "Our Services",
+    "title1": "Our",
+    "title2": "Services",
     "securePayment": {
       "title": "Secure Payment",
       "description": "Integrate secure payment gateways for users to pay for their tickets."
@@ -85,7 +86,8 @@
     "services": "Services Page"
   },
   "topSearch": {
-    "title": "Top Search Routes",
+    "title1": "Top Search",
+    "title2": "Routes",
     "from": "From",
     "to": "To",
     "facilities": {
