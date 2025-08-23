@@ -1,14 +1,13 @@
 import './App.css'
-import SearchWithLifting from './pages/SearchWithLifting';
+import SearchWithContext from './pages/SearchWithContext'
+
 
 function App() {
-
   return (
     <>
-      <SearchWithLifting/>
+      <SearchWithContext/>
     </>
   )
 }
 
-export default App;
-
+export default App

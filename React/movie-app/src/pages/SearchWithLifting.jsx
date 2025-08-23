@@ -5,40 +5,51 @@ import {  useMemo } from 'react';
 
 function SearchWithLifting() {
     const [movies, setMovies] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const movieCards = useMemo(() => {
-        if (!movies.results) return null;
-
-        return movies.results.map((m) => (
-            <div key={m.id} className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-72">
-                <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-                    <img
-                        src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=80"
-                        alt="card-image"
-                    />
+        if (!movies.results || movies.results.length === 0) {
+            return (
+                <div className="text-center text-slate-500 py-8">
+                    {movies.results && movies.results.length === 0 
+                        ? "No movies found. Try a different search term." 
+                        : "Search for movies to see results here."
+                    }
                 </div>
-                <div className="p-4">
-                    <h6 className="mb-2 text-slate-800 text-xl font-semibold">
-                        {m.title}
-                    </h6>
-                    <p className="text-slate-600 leading-normal font-light">
-                        {m.overview}
-                    </p>
-                </div>
-                <div className="px-4 pb-4 pt-0 mt-2">
-                    <button className="rounded-md bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
-                        Read more
-                    </button>
-                </div>
-            </div>
+            );
+        }
+        
+        return movies.results.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} />
         ));
     }, [movies]);
 
+    const handleSetMovies = (data) => {
+        setIsLoading(false);
+        setMovies(data);
+    };
+
     return (
-        <div className="flex items-center justify-center flex-col">
-            <SearchForm setValue={setMovies} />
-            <div className="flex flex-row flex-wrap justify-center gap-4">
-                {movieCards}
+        <div className="min-h-screen bg-gray-50 py-8">
+            <div className="max-w-7xl mx-auto px-4">
+                <div className="text-center mb-8">
+                    <h1 className="text-3xl font-bold text-gray-900 mb-4">Movie Search</h1>
+                    <p className="text-gray-600">Discover your favorite movies</p>
+                </div>
+                
+                <div className="flex justify-center mb-8">
+                    <SearchForm setValue={handleSetMovies} />
+                </div>
+                
+                {isLoading ? (
+                    <div className="flex justify-center items-center py-12">
+                        <div className="text-lg text-gray-600">Searching for movies...</div>
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        {movieCards}
+                    </div>
+                )}
             </div>
         </div>
     );
