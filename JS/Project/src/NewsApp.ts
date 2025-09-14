@@ -1,7 +1,7 @@
 import { NewsArticle, NewsResponse, Category } from './types.js';
 
 export class NewsApp {
-  private apiKey = 'API_KEY_HERE';
+  private apiKey = '47357696740545ec972621d08d67e799';
   private currentCategory = 'general';
   private currentPage = 1;
   private pageSize = 12;

@@ -51,7 +51,7 @@ function initMap() {
 
             const data = await res.json();
             console.log("Location saved:", data);
-            window.location.href = "../weather/weather.html";
+            window.location.href = "../weather/index.html";
         } catch (err) {
             console.error("Failed to submit location:", err);
             alert("Failed to save location.");

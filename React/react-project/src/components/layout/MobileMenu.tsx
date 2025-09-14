@@ -20,7 +20,7 @@ export const MobileMenu: React.FC = () => {
           <SheetTitle className="sr-only">Sidebar</SheetTitle>
           <div id="sidebar-sheet-desc" className="sr-only">Main navigation</div>
           <SidebarProvider>
-            <SidebarContent className="h-full flex flex-col">
+            <SidebarContent className="h-full ">
               <SidebarMenuContent onItemClick={() => setOpen(false)} />
             </SidebarContent>
           </SidebarProvider>

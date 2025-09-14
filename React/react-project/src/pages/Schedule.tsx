@@ -48,25 +48,25 @@ const Schedule: React.FC = () => {
         <table className="min-w-full divide-y divide-gray-700 text-sm sm:text-base dark:text-gray-700 rounded-xl overflow-hidden bg-transparent ">
         <thead>
   <tr className="text-left dark:text-gray-200 text-xs sm:text-sm">
-    <th className="py-2 px-1 sm:py-3 sm:px-2 font-semibold">Bus Number</th>
-    <th className="py-2 px-1 sm:py-3 sm:px-2 font-semibold">Route</th>
-    <th className="py-2 px-1 sm:py-3 sm:px-2 font-semibold">Departure Time</th>
-    <th className="py-2 px-1 sm:py-3 sm:px-2 font-semibold hidden sm:table-cell">Arrival Time</th>
-    <th className="py-2 px-1 sm:py-3 sm:px-2 font-semibold hidden sm:table-cell">Driver</th>
-    <th className="py-2 px-1 sm:py-3 sm:px-2 font-semibold text-center hidden sm:table-cell" colSpan={2}></th>
+    <th className="py-2 px-1 sm:py-3 sm:px-2 font-semibold text-center sm:text-left">Bus Number</th>
+    <th className="py-2 px-1 sm:py-3 sm:px-2 font-semibold text-center sm:text-left">Route</th>
+    <th className="py-2 px-1 sm:py-3 sm:px-2 font-semibold text-center sm:text-left">Departure Time</th>
+    <th className="py-2 px-1 sm:py-3 sm:px-2 font-semibold text-center sm:text-left hidden sm:table-cell">Arrival Time</th>
+    <th className="py-2 px-1 sm:py-3 sm:px-2 font-semibold text-center sm:text-left hidden sm:table-cell">Driver</th>
+    <th className="py-2 px-1 sm:py-3 sm:px-2 font-semibold text-center sm:text-left hidden sm:table-cell" colSpan={2}></th>
   </tr>
 </thead>
 
-          <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+          <tbody className="divide-y divide-gray-100 dark:divide-gray-700 text-center sm:text-left">
             {filtered.map((row, i) => (
               <tr key={i} className="text-gray-900 dark:text-gray-100 text-sm sm:text-base dark:hover:bg-white/5 transition-colors">
                 <td className="py-2 px-1 sm:py-3 sm:px-2 whitespace-nowrap border-b border-gray-100 dark:border-gray-600">{row.busNumber}</td>
                 <td className="py-2 px-1 sm:py-3 sm:px-2 whitespace-nowrap border-b border-gray-100 dark:border-gray-600">{row.route}</td>
                 <td className="py-2 px-1 sm:py-3 sm:px-2 whitespace-nowrap border-b border-gray-100 dark:border-gray-600">{row.departureTime}</td>
-                <td className="text-center hidden sm:table-cell py-2 px-1 sm:py-3 sm:px-2 whitespace-nowrap border-b border-gray-100 dark:border-gray-600">{row.arrivalTime}</td>
-                <td className="text-center hidden sm:table-cell py-2 px-1 sm:py-3 sm:px-2 pr-4 whitespace-nowrap border-b border-gray-100 dark:border-gray-600 align-middle">
+                <td className="hidden sm:table-cell py-2 px-1 sm:py-3 sm:px-2 whitespace-nowrap border-b border-gray-100 dark:border-gray-600">{row.arrivalTime}</td>
+                <td className="hidden sm:table-cell py-2 px-1 sm:py-3 sm:px-2 pr-4 whitespace-nowrap border-b border-gray-100 dark:border-gray-600 align-middle">
                   <div className="flex items-center gap-2">
-                    <img src={row.driver.avatar} alt={row.driver.name} className="w-8 h-8 rounded-full object-cover" />
+                    <img src={row.driver.avatar} alt={row.driver.name} className="w-8 h-8 rounded-full object-cover truncate max-w-[150px] overflow-hidden whitespace-nowrap" />
                   </div>
                 </td>
                 <td className="text-center hidden sm:table-cell py-2 px-1 sm:py-3 sm:px-2 text-center border-b border-gray-100 dark:border-gray-600">
