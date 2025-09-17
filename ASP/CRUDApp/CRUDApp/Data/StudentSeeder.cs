@@ -1,7 +1,7 @@
 ﻿using Bogus;
-using CRUDApp.Models;
+using CrudApp.Models;
 
-namespace CRUDApp.Data
+namespace CrudApp.Data
 {
     public static class StudentSeeder
     {

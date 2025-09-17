@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CRUDApp.Models
+namespace CrudApp.Models
 {
     public class Student
     {
