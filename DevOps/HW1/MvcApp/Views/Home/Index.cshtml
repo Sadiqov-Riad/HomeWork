@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Данные из Docker API</h1>
+    <hr />
+
+    @if (ViewBag.Data != null)
+    {
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                Ответ от API (Успешно)
+            </div>
+            <div class="card-body">
+                <p class="card-text"><strong>Сырой JSON:</strong></p>
+                <code class="d-block p-3 bg-light border">@ViewBag.Data</code>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            Данные не получены. Проверьте логи mvc-container.
+        </div>
+    }
+</div>
