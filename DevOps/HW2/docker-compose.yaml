@@ -1,0 +1,91 @@
+version: '3.8'
+
+services:
+  # PostgreSQL для ms-identity
+  postgres-identity:
+    image: postgres:16-alpine
+    container_name: postgres-identity
+    environment:
+      POSTGRES_USER: riad
+      POSTGRES_PASSWORD: coolpass123
+      POSTGRES_DB: identity_db
+    volumes:
+      - identity_data:/var/lib/postgresql/data
+    networks:
+      - backend-network
+
+  mongo-domain1:
+    image: mongo:latest
+    container_name: mongo-domain1
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - backend-network
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: redis-cache
+    networks:
+      - backend-network
+
+  # PostgreSQL для domain_2 (основная БД)
+  postgres-domain2:
+    image: postgres:16-alpine
+    container_name: postgres-domain2
+    environment:
+      POSTGRES_USER: riad
+      POSTGRES_PASSWORD: coolpass123
+      POSTGRES_DB: domain2_db
+    volumes:
+      - domain2_data:/var/lib/postgresql/data
+    networks:
+      - backend-network
+
+  ms-identity:
+    build:
+      context: ./IdentityService
+    depends_on:
+      - postgres-identity
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres-identity;Database=identity_db;Username=riad;Password=coolpass123
+    networks:
+      - backend-network
+    ports:
+    - "5001:8080"
+
+  domain_1:
+    build:
+      context: ./DomainService1
+    depends_on:
+      - mongo-domain1
+    environment:
+      - MONGO_CONNECTION=mongodb://mongo-domain1:27017
+    networks:
+      - backend-network
+    ports:
+    - "5002:8080"
+
+  domain_2:
+    build:
+      context: ./DomainService2
+    depends_on:
+      - redis-cache
+      - postgres-domain2
+    environment:
+      - ConnectionStrings__Redis=redis-cache:6379
+      - ConnectionStrings__SqlDb=Host=postgres-domain2;Database=domain2_db;Username=riad;Password=coolpass123
+    networks:
+      - backend-network
+    ports:
+    - "5003:8080"
+
+networks:
+  backend-network:
+    driver: bridge
+
+volumes:
+  identity_data:
+  mongo_data:
+  domain2_data:
