@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: riad
+      POSTGRES_PASSWORD: coolpass123
+      POSTGRES_DB: users
+    volumes:
+      - user_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  mongo-db:
+    image: mongo:latest
+    container_name: mongo-db
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app-network
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: redis-cache
+    networks:
+      - app-network
+
+  ms-users-api:
+    build: ./UserApi
+    container_name: ms-users-api
+    depends_on:
+      - postgres-db
+    environment:
+      - ConnectionStrings__Default=Host=postgres-db;Database=users;Username=riad;Password=coolpass123
+    networks:
+      - app-network
+
+  ms-products-api:
+    build: ./ProductApi
+    container_name: ms-products-api
+    depends_on:
+      - mongo-db
+      - redis-cache
+    environment:
+      - RedisConnection=redis-cache:6379
+      - MongoConnection=mongodb://mongo-db:27017
+    networks:
+      - app-network
+
+  mvc-frontend:
+    build: ./MvcApp
+    container_name: mvc-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - ms-users-api
+      - ms-products-api
+    environment:
+      - UsersApiUrl=http://ms-users-api:8080 
+      - ProductsApiUrl=http://ms-products-api:8080
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  user_data:
+  mongo_data:

@@ -1,0 +1,24 @@
+﻿@model DashboardViewModel
+
+<div class="container">
+    <header class="d-flex justify-content-between py-3 mb-4 border-bottom">
+        <h2>Магазин</h2>
+        <div class="user-info">
+            <strong>Привет, @Model.User?.Username!</strong>
+        </div>
+    </header>
+
+    <div class="row">
+        @foreach (var item in Model.Products) {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                        <p class="card-text text-muted">Цена: @item.Price.ToString("C")</p>
+                        <button class="btn btn-primary">Купить</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
